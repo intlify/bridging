@@ -94,7 +94,6 @@
     "release": "./scripts/release.sh"
   },
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ]
 }
