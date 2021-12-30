@@ -34,7 +34,6 @@ jobs:
   edge-release:
     needs:
       - test
-      - lint
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
