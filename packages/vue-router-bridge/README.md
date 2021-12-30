@@ -86,9 +86,9 @@ To explicitly switch the redirecting version, you can use these commands in your
 ### 🤏 Manually Switch Versions
 
 ```sh
-npx vue-router-switch 2
-# or
 npx vue-router-switch 3
+# or
+npx vue-router-switch 4
 ```
 
 ### 📦 Package Aliasing
@@ -96,9 +96,9 @@ npx vue-router-switch 3
 If you would like to import `vue-router` under an alias, you can use the following command:
 
 ```sh
-npx vue-router-switch 2 vue2
+npx vue-router-switch 3 vue-router3
 # or
-npx vue-router-switch 3 vue3
+npx vue-router-switch 4 vue-router4
 ```
 ### 🩹 Auto Fix
 
@@ -134,7 +134,7 @@ or
   },
   "devDependencies": {
     "vue-router": "^3.0.0",
-    "vue-router4": "npm:vue-router@43"
+    "vue-router4": "npm:vue-router@4"
   },
 }
 ```

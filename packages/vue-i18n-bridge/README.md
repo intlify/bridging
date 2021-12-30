@@ -86,9 +86,9 @@ To explicitly switch the redirecting version, you can use these commands in your
 ### 🤏 Manually Switch Versions
 
 ```sh
-npx vue-i18n-switch 2
+npx vue-i18n-switch 8
 # or
-npx vue-i18n-switch 3
+npx vue-i18n-switch 9
 ```
 
 ### 📦 Package Aliasing
@@ -96,9 +96,9 @@ npx vue-i18n-switch 3
 If you would like to import `vue-i18n` under an alias, you can use the following command:
 
 ```sh
-npx vue-i18n-switch 2 vue2
+npx vue-i18n-switch 8 vue-i18n-8
 # or
-npx vue-i18n-switch 3 vue3
+npx vue-i18n-switch 9 vue-i18n-9
 ```
 ### 🩹 Auto Fix
 
