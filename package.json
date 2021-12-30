@@ -82,7 +82,7 @@
     "format:prettier": "prettier --config .prettierrc --ignore-path .prettierignore '**/*.{js,json,html}'",
     "lint": "run-p lint:action lint:codes",
     "lint:action": "node-actionlint",
-    "lint:codes": "eslint --config .eslintrc.js --ext .js,.mjs,.ts,.vue ./packages ./examples",
+    "lint:codes": "eslint --config .eslintrc.js --ext .js,.mjs,.ts,.vue ./packages",
     "lint:fix": "run-p \"lint:codes -- --fix\"",
     "lint:secret": "npx secretlint \"**/*\"",
     "preinstall": "node ./scripts/preinstall.mjs",
