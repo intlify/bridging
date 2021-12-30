@@ -47,8 +47,6 @@ jobs:
           cache: 'pnpm'
       - name: Install
         run: pnpm install --no-frozen-lockfile
-      - name: Build
-        run: pnpm build
       - name: Test
         run: pnpm test
   edge-release:
@@ -72,8 +70,6 @@ jobs:
           cache: 'pnpm'
       - name: Install
         run: pnpm install --no-frozen-lockfile
-      - name: Build
-        run: pnpm build
       - name: Release Edge
         if: |
           github.event_name == 'push' &&
