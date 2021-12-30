@@ -140,7 +140,7 @@ or
 ```
 
 ## 💖 Thanks
-This package idea was inspired from [vue-demi](https://github.com/vueuse/vue-demi), [@antfu](https://github.com/antfu)s great work!
+This package idea was inspired from [vue-demi](https://github.com/vueuse/vue-demi), [@antfu](https://github.com/antfu)'s great work!
 
 ## ©️ License
 
