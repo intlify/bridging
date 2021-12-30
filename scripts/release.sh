@@ -8,6 +8,9 @@ git restore -s@ -SW  -- packages
 # Install pnpm
 pnpm install
 
+# Build
+pnpm build
+
 # Bump versions
 npx jiti ./scripts/bump.ts
 

@@ -75,7 +75,6 @@
     "url": "git+https://github.com/intlify/bridging.git"
   },
   "scripts": {
-    "clean": "run-p clean:*",
     "bump": "./scripts/bump.sh",
     "fix": "run-p lint:fix format:fix",
     "format:fix": "run-p \"format:prettier -- --write\"",
@@ -86,6 +85,8 @@
     "lint:fix": "run-p \"lint:codes -- --fix\"",
     "lint:secret": "npx secretlint \"**/*\"",
     "preinstall": "node ./scripts/preinstall.mjs",
+    "build": "echo build!",
+    "test": "echo test!",
     "release": "./scripts/release.sh"
   },
   "workspaces": [
