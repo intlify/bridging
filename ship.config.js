@@ -2,7 +2,7 @@ import execa from 'execa'
 import path from 'pathe'
 import { promises as fs, readFileSync } from 'fs'
 
-const __dirname = _dirname
+const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
 async function readJson(target) {
   const file = await fs.readFile(target, 'utf8')
