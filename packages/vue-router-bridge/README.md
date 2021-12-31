@@ -114,8 +114,8 @@ You can support testing for both versions by adding npm alias in your dev depend
 ```js
 {
   "scripts": {
-    "test:3": "vue-router-switch 2 vue-router3 && jest",
-    "test:4": "vue-router-switch 3 && jest",
+    "test:3": "vue-router-switch 3 vue-router3 && jest",
+    "test:4": "vue-router-switch 4 && jest",
   },
   "devDependencies": {
     "vue-router": "^4.0.0",
@@ -129,7 +129,7 @@ or
 ```js
 {
   "scripts": {
-    "test:3": "vue-router-switch 4 && jest",
+    "test:3": "vue-router-switch 3 && jest",
     "test:4": "vue-router-switch 4 vue-router4 && jest",
   },
   "devDependencies": {
