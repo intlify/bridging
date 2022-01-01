@@ -8,6 +8,8 @@ Vue Router bridging for Vue 2 & Vue 3
 - Vue Router composable APIs available on Vue 2 & Vue 3
   - `useRouter`
   - `useRoute`
+- Stubbed Vue Router 4 APIs on Vue Router 3
+  - About details [here](https://github.com/intlify/bridging/blob/63b1fb5dab4be772f4f564f023e9028979d37196/packages/vue-router-bridge/lib/v3/index.d.ts#L7-L75)
 - Auto detect Vue Router version on bundling
 - Manual switch versions
 ## 💿 Installation
