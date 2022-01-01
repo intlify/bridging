@@ -1,6 +1,6 @@
 var VueI18n = require('vue-i18n')
 
-Object.keys(VueI18n).forEach(function(key) {
+Object.keys(VueI18n).forEach(function (key) {
   exports[key] = Vue[key]
 })
 

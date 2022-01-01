@@ -1,4 +1,4 @@
-declare const VueI18n: any // eslint-disable-line @typescript-eslint/no-explicit-any
+declare const VueI18n: undefined
 declare const isVueI18n8: boolean
 declare const isVueI18n9: boolean
 
