@@ -14,9 +14,6 @@ Utilities that provide compatibility for Vue 2 & Vue 3
 ## 🏃 Project using bridging packages
 - `@intlify/routing` (it will be releasing soon)
 
-## ✅ TODO
-- [ ] examples
-
 ## ©️ License
 
 [MIT](http://opensource.org/licenses/MIT)
