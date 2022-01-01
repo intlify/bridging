@@ -6,7 +6,7 @@ Vue I18n bridging for Vue 2 & Vue 3
 
 ## 🌟 Features
 - Vue I18n composable APIs available on Vue 2 & Vue 3 (e.g `createI18n`, `useI18n`)
-- Auto detect Vue Router version on bundling
+- Auto detect Vue I18n version on bundling
 - Manual switch versions
 ## 💿 Installation
 
@@ -47,7 +47,7 @@ You need to add `vue-i18n` and `@vue/composition-api` to your plugin's peer depe
 }
 ```
 
-Import everything related to Vue Router from it, it will redirect to `vue-i18n@8.26` + `@vue/composition-api` or `vue-i18n@9.2` based on users' environments.
+Import everything related to Vue I18n from it, it will redirect to `vue-i18n@8.26` + `@vue/composition-api` or `vue-i18n@9.2` based on users' environments.
 
 ```js
 import { createI18n, useI18n } from '@intlify/vue-i18n-bridge'
@@ -102,7 +102,7 @@ npx vue-i18n-switch 9 vue-i18n-9
 ```
 ### 🩹 Auto Fix
 
-If the postinstall hook doesn't get triggered or you have updated the Vue Router version, try to run the following command to resolve the redirecting:
+If the postinstall hook doesn't get triggered or you have updated the Vue I18n version, try to run the following command to resolve the redirecting:
 
 ```sh
 npx vue-i18n-fix
@@ -114,13 +114,13 @@ You can support testing for both versions by adding npm alias in your dev depend
 ```js
 {
   "scripts": {
-    "test:8": "vue-i18n-switch 8 vue-i18n-8 && jest",
+    "test:8": "vue-i18n-switch 8 vue-i18n-legacy && jest",
     "test:9": "vue-i18n-switch 9 && jest",
   },
   "devDependencies": {
-    "vue-i18n-8": "^8.26.1",
+    "vue-i18n-legacy": "npm:vue-i18n@^8.26.1",
     "vue-i18n-bridge": "^9.2.0-beta.25",
-    "vue-i18n": "npm:vue-i18n@9.2.0-beta.25"
+    "vue-i18n": "^9.2.0-beta.25"
   },
 }
 ```
@@ -131,11 +131,11 @@ or
 {
   "scripts": {
     "test:8": "vue-i18n-switch 8 && jest",
-    "test:9": "vue-i18n-switch 9 vue-i18n-9 && jest",
+    "test:9": "vue-i18n-switch 9 vue-i18n-next && jest",
   },
   "devDependencies": {
     "vue-i18n": "^8.26.1",
-    "vue-i18n-9": "npm:vue-i18n@9.2.0-beta.25"
+    "vue-i18n-next": "npm:vue-i18n@9.2.0-beta.25"
   },
 }
 ```
