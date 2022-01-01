@@ -1,6 +1,9 @@
 var VueRouter = require('vue-router') // eslint-disable-line @typescript-eslint/no-var-requires
 
-exports.useRouter = VueRouter.useRouter
-exports.useRoute = VueRouter.useRoute
+Object.keys(VueRouter).forEach(function (key) {
+  exports[key] = VueRouter[key]
+})
+
+exports.default = undefined
 exports.isVueRouter3 = false
 exports.isVueRouter4 = true
