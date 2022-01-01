@@ -19,15 +19,26 @@ function log(...args) {
   console.log(`[vue-router-bridge] `, ...args)
 }
 
-function copy(name, version, router) {
+function copy(name, version, router, esm = false) {
   const src = path.join(dir, `v${version}`, name)
   const dest = path.join(dir, name)
   let content = fs.readFileSync(src, 'utf-8')
-  content = content.replace(/'router'/g, `'${router}'`)
+  content = esm
+    ? content.replace(/from 'vue-router'/g, `from '${router}'`)
+    : content.replace(/require\('vue-router'\)/g, `require('${router}')`)
   try {
     fs.unlinkSync(dest)
   } catch (error) {}
   fs.writeFileSync(dest, content, 'utf-8')
+}
+
+function checkVueRouter(pkg) {
+  const router = loadModule(pkg)
+  if (!router) {
+    warn('Vue Router plugin is not found. Please run "npm install vue-router" to install.')
+    return false
+  }
+  return true
 }
 
 function checkVCA() {
@@ -41,12 +52,15 @@ function checkVCA() {
 
 function switchVersion(version, router) {
   router = router || 'vue-router'
+  if (!checkVueRouter(router)) {
+    return
+  }
   if (version === 3 && !checkVCA()) {
     return
   }
   copy('index.cjs', version, router)
-  copy('index.mjs', version, router)
-  copy('index.d.ts', version, router)
+  copy('index.mjs', version, router, true)
+  copy('index.d.ts', version, router, true)
 }
 
 module.exports.warn = warn

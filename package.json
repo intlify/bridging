@@ -23,6 +23,15 @@
       "Type: Documentation": ":pencil: Documentation"
     }
   },
+  "pnpm": {
+    "packageExtensions": {
+      "vue-router@4": {
+        "dependencies": {
+          "vue": "next"
+        }
+      }
+    }
+  },
   "devDependencies": {
     "@kazupon/lerna-changelog": "^4.3.0",
     "@secretlint/secretlint-rule-preset-recommend": "^4.1.3",
@@ -48,9 +57,12 @@
     "typescript": "^4.5.4",
     "vite": "^2.7.7",
     "vitest": "^0.0.125",
+    "@vue/composition-api": "^1.4.0",
     "vue-i18n": "beta",
     "vue-i18n-bridge": "beta",
     "vue-i18n-legacy": "npm:vue-i18n@latest",
+    "vue-router": "next",
+    "vue-router3": "npm:vue-router@latest",
     "yorkie": "^2.0.0"
   },
   "engines": {
@@ -85,7 +97,7 @@
     "build": "echo build!",
     "fix": "run-p lint:fix format:fix",
     "format:fix": "run-p \"format:prettier -- --write\"",
-    "format:prettier": "prettier --config .prettierrc --ignore-path .prettierignore '**/*.{js,json,html}'",
+    "format:prettier": "prettier --config .prettierrc --ignore-path .prettierignore '**/*.{js,mjs,json,html}'",
     "lint": "run-p lint:action lint:codes",
     "lint:action": "node-actionlint",
     "lint:codes": "eslint --config .eslintrc.js --ext .js,.mjs,.ts,.vue ./packages",
@@ -93,15 +105,27 @@
     "lint:secret": "npx secretlint \"**/*\"",
     "switch:i18n9": "node ./packages/vue-i18n-bridge/bin/switch.js 9",
     "switch:i18n8": "node ./packages/vue-i18n-bridge/bin/switch.js 8 vue-i18n-legacy",
+    "switch:router4": "node ./packages/vue-router-bridge/bin/switch.js 4",
+    "switch:router3": "node ./packages/vue-router-bridge/bin/switch.js 3 vue-router3",
     "play:i18n:vue2": "pnpm switch:i18n8 && pnpm dev --filter vue-i18n-vue2",
     "play:i18n:vue3": "pnpm switch:i18n9 && pnpm dev --filter vue-i18n-vue3",
-    "test": "run-s \"test:i18n8\" \"test:i18n9\"",
-    "test:i18n8": "pnpm switch:i18n8 && run-p test:i18n8:*",
-    "test:i18n8:unit": "vitest run vue-i18n-8",
-    "test:i18n8:type": "pnpm typecheck --filter vue-i18n-vue2",
+    "play:router:vue2": "pnpm switch:router3 && pnpm dev --filter vue-router-vue2",
+    "play:router:vue3": "pnpm switch:router4 && pnpm dev --filter vue-router-vue3",
+    "test": "run-s \"test:i18n\" \"test:router\"",
+    "test:i18n": "run-s \"test:i18n8\" \"test:i18n9\"",
     "test:i18n9": "pnpm switch:i18n9 && run-p test:i18n9:*",
     "test:i18n9:unit": "vitest run vue-i18n-9",
     "test:i18n9:type": "pnpm typecheck --filter vue-i18n-vue3",
+    "test:i18n8": "pnpm switch:i18n8 && run-p test:i18n8:*",
+    "test:i18n8:unit": "vitest run vue-i18n-8",
+    "test:i18n8:type": "pnpm typecheck --filter vue-i18n-vue2",
+    "test:router": "run-s \"test:router3\" \"test:router4\"",
+    "test:router4": "pnpm switch:router4 && run-p test:router4:*",
+    "test:router4:unit": "vitest run vue-router-4",
+    "test:router4:type": "pnpm typecheck --filter vue-router-vue3",
+    "test:router3": "pnpm switch:router3 && run-p test:router3:*",
+    "test:router3:unit": "vitest run vue-router-3",
+    "test:router3:type": "pnpm typecheck --filter vue-router-vue2",
     "coverage": "vitest --coverage",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
