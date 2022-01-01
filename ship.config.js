@@ -37,7 +37,7 @@ export default {
     packagesToPublish: ['packages/vue-router-bridge', 'packages/vue-i18n-bridge']
   },
   updateChangelog: false,
-  installCommand: undefined,
+  installCommand: () => 'pnpm install --silent',
   buildCommand: ({ isYarn, version }) => 'pnpm build',
   beforeCommitChanges: async ({ nextVersion, exec, dir }) => {
     const pkg = await readJson(path.resolve(__dirname, './package.json'))
