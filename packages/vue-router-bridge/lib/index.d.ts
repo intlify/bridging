@@ -6,7 +6,7 @@ import type { RouteLocationNormalizedLoaded, Router, RouteRecord, RouteMeta, Nav
  */
 
 // Stub VueRouter class interfaces
-declare type VueRouter = {
+declare interface VueRouter {
   app: Vue
   options: RouterOptions
   mode: RouterMode
