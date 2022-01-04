@@ -1,4 +1,14 @@
 
+## v0.3.1 (2022-01-04)
+
+#### :bug: Bug Fixes
+* `vue-router-bridge`
+  * [#7](https://github.com/intlify/bridging/pull/7) fix(vue-router-bridge): support interface extending of VueRouter ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.3.0 (2022-01-04)
 
 #### :zap: Improvement Features
