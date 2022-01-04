@@ -5,7 +5,42 @@ import type { RouteLocationNormalizedLoaded, Router, RouteRecord, RouteMeta, Nav
  * shim vue-router@3 typings
  */
 
-declare const VueRouter: any
+// Stub VueRouter class interfaces
+declare type VueRouter = {
+  app: Vue
+  options: RouterOptions
+  mode: RouterMode
+  currentRoute: Route
+  beforeEach(guard: NavigationGuard): Function
+  beforeResolve(guard: NavigationGuard): Function
+  afterEach(hook: (to: Route, from: Route) => any): Function
+  push(location: RawLocation): Promise<Route>
+  push(location: RawLocation, onComplete?: Function, onAbort?: ErrorHandler): void
+  replace(location: RawLocation): Promise<Route>
+  replace(location: RawLocation, onComplete?: Function, onAbort?: ErrorHandler): void
+  go(n: number): void
+  back(): void
+  forward(): void
+  match(raw: RawLocation, current?: Route, redirectedFrom?: Location): Route
+  getMatchedComponents(to?: RawLocation | Route): Component[]
+  onReady(cb: Function, errorCb?: ErrorHandler): void
+  onError(cb: ErrorHandler): void
+  addRoutes(routes: RouteConfig[]): void
+  AddRoute(parent: string, route: RouteConfig): void
+  AddRoute(route: RouteConfig): void
+  resolve(
+    to: RawLocation,
+    current?: Route,
+    append?: boolean
+  ): {
+    location: Location
+    route: Route
+    href: string
+    normalizedTo: Location
+    resolved: Route
+  }
+}
+declare type ErrorHandler = (err: Error) => void
 declare type RouterMode = 'hash' | 'history' | 'abstract'
 declare type Dictionary<T> = { [key: string]: T }
 declare interface Location {
@@ -35,7 +70,25 @@ declare interface PathToRegexpOptions {
   strict?: boolean
   end?: boolean
 }
+declare type Vue = any // emulate Vue (v2)
 declare type Component = any // emulate Vue Component (v2)
+declare type Position = { x: number; y: number }
+declare type PositionResult = Position | { selector: string; offset?: Position; behavior?: ScrollBehavior } | void
+declare interface RouterOptions {
+  routes?: RouteConfig[]
+  mode?: RouterMode
+  fallback?: boolean
+  base?: string
+  linkActiveClass?: string
+  linkExactActiveClass?: string
+  parseQuery?: (query: string) => Record<string, any>
+  stringifyQuery?: (query: Record<string, any>) => string
+  scrollBehavior?: (
+    to: Route,
+    from: Route,
+    savedPosition: Position | void
+  ) => PositionResult | Promise<PositionResult> | undefined | null
+}
 declare type RoutePropsFunction = (route: Route) => Record<string, anu>
 declare interface _RouteConfigBase {
   path: string
