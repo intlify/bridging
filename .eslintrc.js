@@ -16,5 +16,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module'
   },
-  rules: {}
+  rules: {
+    '@typescript-eslint/ban-types': 'off'
+  }
 }
