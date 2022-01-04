@@ -1,4 +1,16 @@
 
+## v0.3.0 (2022-01-04)
+
+#### :zap: Improvement Features
+* `vue-i18n-bridge`
+  * [#5](https://github.com/intlify/bridging/pull/5) fix(vue-i18n-bridge): add some vue-i18n stub interfaces ([@kazupon](https://github.com/kazupon))
+* `vue-router-bridge`
+  * [#4](https://github.com/intlify/bridging/pull/4) improvement(vue-router-bridge): add more vue-router stub typings ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.2.0 (2022-01-01)
 
 #### :zap: Improvement Features
