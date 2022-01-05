@@ -147,6 +147,7 @@ declare const isVueRouter4: boolean
 export * from 'vue-router'
 
 export {
+  VueRouter,
   useRouter,
   useRoute,
   isVueRouter3,
