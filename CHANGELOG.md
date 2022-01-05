@@ -1,4 +1,16 @@
 
+## v0.3.2 (2022-01-05)
+
+#### :zap: Improvement Features
+* `vue-i18n-bridge`
+  * [#10](https://github.com/intlify/bridging/pull/10) fix(vue-i18n-bridge): support VueI18n as named export ([@kazupon](https://github.com/kazupon))
+* `vue-router-bridge`
+  * [#9](https://github.com/intlify/bridging/pull/9) fix(vue-router-bridge): support VueRouter as named export ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.3.1 (2022-01-04)
 
 #### :bug: Bug Fixes
