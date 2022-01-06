@@ -1,4 +1,14 @@
 
+## v0.3.3 (2022-01-06)
+
+#### :zap: Improvement Features
+* `vue-router-bridge`
+  * [#12](https://github.com/intlify/bridging/pull/12) fix(vue-router-bridge): export dummy vue-router 3 class ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.3.2 (2022-01-05)
 
 #### :zap: Improvement Features
