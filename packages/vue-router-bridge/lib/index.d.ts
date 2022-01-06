@@ -89,7 +89,7 @@ declare interface RouterOptions {
     savedPosition: Position | void
   ) => PositionResult | Promise<PositionResult> | undefined | null
 }
-declare type RoutePropsFunction = (route: Route) => Record<string, anu>
+declare type RoutePropsFunction = (route: Route) => Record<string, any>
 declare interface _RouteConfigBase {
   path: string
   name?: string
@@ -103,7 +103,7 @@ declare interface _RouteConfigBase {
 }
 declare interface RouteConfigSingleView extends _RouteConfigBase {
   component?: Component
-  props?: boolean | Rect | RoutePropsFunction
+  props?: boolean | Record<string, any> | RoutePropsFunction
 }
 declare interface RouteConfigMultipleViews extends _RouteConfigBase {
   components?: Dictionary<Component>
@@ -143,6 +143,13 @@ declare const isVueRouter3: boolean
  */
 declare const isVueRouter4: boolean
 
+/**
+ * Define dummy vue-router 3 class
+ */
+declare class VueRouter3 {
+  constructor(options?: RouterOptions)
+}
+
 // export vue-router@4 typings
 export * from 'vue-router'
 
@@ -161,7 +168,7 @@ export {
   Route
 }
 
-// export dummy VueRouter class
-export default VueRouter
+// Export dummy VueRouter class
+export default VueRouter3
 
 /* eslint-enable @typescript-eslint/no-explicit-any */
