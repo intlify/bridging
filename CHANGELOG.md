@@ -1,4 +1,14 @@
 
+## v0.3.4 (2022-01-07)
+
+#### :bug: Bug Fixes
+* `vue-router-bridge`
+  * [#14](https://github.com/intlify/bridging/pull/14) fix(vue-router-bridge): fix cannot default import ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.3.3 (2022-01-06)
 
 #### :zap: Improvement Features
