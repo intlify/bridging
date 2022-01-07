@@ -1,7 +1,7 @@
 {
   "name": "@intlify/bridging",
   "description": "Utilities that provide compatibility for Vue 2 & Vue 3",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "author": {
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
