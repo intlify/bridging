@@ -10,7 +10,7 @@
   "dependencies": {
     "@vue/composition-api": "^1.4.0",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.3",
+    "vue-router3": "npm:vue-router@3",
     "@intlify/vue-router-bridge": "workspace:*"
   },
   "devDependencies": {
