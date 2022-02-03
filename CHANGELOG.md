@@ -1,4 +1,16 @@
 
+## v0.3.5 (2022-02-03)
+
+#### :zap: Improvement Features
+* `vue-router-bridge`
+  * [#17](https://github.com/intlify/bridging/pull/17) improvement: add router bridge debugging ([@kazupon](https://github.com/kazupon))
+* `vue-i18n-bridge`
+  * [#16](https://github.com/intlify/bridging/pull/16) improvement: add debugging ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.3.4 (2022-01-07)
 
 #### :bug: Bug Fixes
