@@ -1,14 +1,21 @@
 const fs = require('fs') // eslint-disable-line @typescript-eslint/no-var-requires
 const path = require('path') // eslint-disable-line @typescript-eslint/no-var-requires
 
+const DEBUG = process.env.DEBUG
+
 const dir = path.resolve(__dirname, '..', 'lib')
 
 function loadModule(name) {
   try {
     return require(name)
   } catch (e) {
+    DEBUG && error(e)
     return undefined
   }
+}
+
+function error(...args) {
+  console.error(`[vue-i18n-bridge] `, ...args)
 }
 
 function warn(...args) {
