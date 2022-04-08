@@ -1,4 +1,14 @@
 
+## v0.3.6 (2022-04-08)
+
+#### :bug: Bug Fixes
+* `vue-router-bridge`
+  * [#19](https://github.com/intlify/bridging/pull/19) fix(vue-router-bridge): add some shim vue-router v4 type definitions ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.3.5 (2022-02-03)
 
 #### :zap: Improvement Features

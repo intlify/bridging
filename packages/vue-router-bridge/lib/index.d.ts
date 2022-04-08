@@ -154,7 +154,6 @@ declare class VueRouter3 {
 export * from 'vue-router'
 
 export {
-  Route,
   VueRouter,
   useRouter,
   useRoute,
@@ -166,7 +165,7 @@ export {
   RouteConfig,
   RouteRecordPublic,
   Location,
-  RouteLocationNormalizedLoaded
+  Route
 }
 
 // Export dummy VueRouter class
