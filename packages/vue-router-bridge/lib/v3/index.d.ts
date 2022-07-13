@@ -406,7 +406,7 @@ declare function useRouter<T = VueRouter>(): T
 /**
  * Returns the current route location. Equivalent to using `$route` inside templates.
  */
-declare function useRoute<T = ComputedRef<Route>>(): T
+declare function useRoute<T = RouteLocationNormalizedLoaded>(): T
 
 /**
  * Wheter the current vue-router version is 3
