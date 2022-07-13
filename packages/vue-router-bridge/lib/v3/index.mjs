@@ -1,5 +1,5 @@
 import VueRouter from 'vue-router'
-import { getCurrentInstance, computed } from '@vue/composition-api/dist/vue-composition-api.mjs'
+import { getCurrentInstance, reactive } from '@vue/composition-api/dist/vue-composition-api.mjs'
 
 var isVueRouter3 = true
 var isVueRouter4 = false
@@ -19,7 +19,7 @@ function useRoute() {
     throw new Error(`should be used in setup`)
   }
   const vm = instance.proxy || instance
-  return computed(() => vm.$route)
+  return reactive(vm.$route)
 }
 
 /**
