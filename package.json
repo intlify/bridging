@@ -58,7 +58,12 @@
     "typescript": "^4.7.3",
     "vite": "^2.9.1",
     "vitest": "^0.18.0",
+<<<<<<< HEAD
     "@vue/composition-api": "^1.4.0",
+=======
+    "@vue/composition-api": "^1.4.9",
+    "vue": "^3",
+>>>>>>> main
     "vue-i18n": "next",
     "vue-i18n-bridge": "next",
     "vue-i18n-legacy": "npm:vue-i18n@8",

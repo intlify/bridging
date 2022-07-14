@@ -16,7 +16,7 @@ const useRoute = () => {
     throw new Error(`should be used in setup`)
   }
   const vm = instance.proxy || instance
-  return VueCompositionAPI.computed(() => vm.$route)
+  return VueCompositionAPI.reactive(vm.$route)
 }
 
 exports.useRouter = useRouter

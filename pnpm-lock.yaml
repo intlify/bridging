@@ -12,7 +12,11 @@ importers:
       '@types/node': ^17.0.23
       '@typescript-eslint/eslint-plugin': ^5.30.0
       '@typescript-eslint/parser': ^5.30.0
+<<<<<<< HEAD
       '@vue/composition-api': ^1.4.0
+=======
+      '@vue/composition-api': ^1.4.9
+>>>>>>> main
       eslint: ^8.19.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.0.0
@@ -31,6 +35,7 @@ importers:
       typescript: ^4.7.3
       vite: ^2.9.1
       vitest: ^0.18.0
+      vue: ^3
       vue-i18n: next
       vue-i18n-bridge: next
       vue-i18n-legacy: npm:vue-i18n@8
@@ -44,7 +49,11 @@ importers:
       '@types/node': 17.0.45
       '@typescript-eslint/eslint-plugin': 5.30.6_d567d64e305900596f70368277b02083
       '@typescript-eslint/parser': 5.30.6_eslint@8.19.0+typescript@4.7.4
+<<<<<<< HEAD
       '@vue/composition-api': 1.7.0
+=======
+      '@vue/composition-api': 1.7.0_vue@3.2.37
+>>>>>>> main
       eslint: 8.19.0
       eslint-config-prettier: 8.5.0_eslint@8.19.0
       eslint-plugin-prettier: 4.2.1_fd2e32b7574349919aac0818c3f895ea
@@ -63,8 +72,14 @@ importers:
       typescript: 4.7.4
       vite: 2.9.14
       vitest: 0.18.0
+<<<<<<< HEAD
       vue-i18n: 9.2.0-beta.37
       vue-i18n-bridge: 9.2.0-beta.37
+=======
+      vue: 3.2.37
+      vue-i18n: 9.2.0-beta.37_vue@3.2.37
+      vue-i18n-bridge: 9.2.0-beta.37_vue@3.2.37
+>>>>>>> main
       vue-i18n-legacy: /vue-i18n/8.27.2
       vue-router: 4.0.13
       vue-router3: /vue-router/3.5.4
@@ -75,7 +90,7 @@ importers:
       '@intlify/vue-i18n-bridge': workspace:*
       '@types/node': ^16.11.17
       '@vitejs/plugin-legacy': ^1.6.3
-      '@vue/composition-api': ^1.4.0
+      '@vue/composition-api': ^1.4.9
       '@vue/runtime-dom': ^3.2.22
       typescript: ~4.5.4
       unplugin-vue2-script-setup: ^0.7.1
@@ -93,7 +108,11 @@ importers:
       vue-i18n-bridge: 9.2.0-beta.37_vue@2.7.5
       vue-i18n-legacy: /vue-i18n/8.27.2
     devDependencies:
+<<<<<<< HEAD
       '@types/node': 16.11.44
+=======
+      '@types/node': 16.11.43
+>>>>>>> main
       '@vitejs/plugin-legacy': 1.8.2_vite@2.9.14
       '@vue/runtime-dom': 3.2.37
       typescript: 4.5.5
@@ -118,7 +137,11 @@ importers:
       vue: 3.2.37
       vue-i18n: 9.2.0-beta.37_vue@3.2.37
     devDependencies:
+<<<<<<< HEAD
       '@types/node': 16.11.44
+=======
+      '@types/node': 16.11.43
+>>>>>>> main
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.14+vue@3.2.37
       typescript: 4.5.5
       vite: 2.9.14
@@ -129,7 +152,7 @@ importers:
       '@intlify/vue-router-bridge': workspace:*
       '@types/node': ^16.11.17
       '@vitejs/plugin-legacy': ^1.6.3
-      '@vue/composition-api': ^1.4.0
+      '@vue/composition-api': ^1.4.9
       '@vue/runtime-dom': ^3.2.22
       typescript: ~4.5.4
       unplugin-vue2-script-setup: ^0.7.1
@@ -145,7 +168,11 @@ importers:
       vue: 2.7.5
       vue-router3: /vue-router/3.5.4
     devDependencies:
+<<<<<<< HEAD
       '@types/node': 16.11.44
+=======
+      '@types/node': 16.11.43
+>>>>>>> main
       '@vitejs/plugin-legacy': 1.8.2_vite@2.9.14
       '@vue/runtime-dom': 3.2.37
       typescript: 4.5.5
@@ -163,14 +190,18 @@ importers:
       typescript: ~4.5.4
       vite: ^2.7.7
       vue: ^3.2.26
-      vue-router: ^4.0.12
+      vue-router: ^4.1.2
       vue-tsc: ^0.30.1
     dependencies:
       '@intlify/vue-router-bridge': link:../../packages/vue-router-bridge
       vue: 3.2.37
       vue-router: 4.1.2
     devDependencies:
+<<<<<<< HEAD
       '@types/node': 16.11.44
+=======
+      '@types/node': 16.11.43
+>>>>>>> main
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.14+vue@3.2.37
       typescript: 4.5.5
       vite: 2.9.14
@@ -268,7 +299,11 @@ packages:
       '@babel/compat-data': 7.18.8
       '@babel/core': 7.18.6
       '@babel/helper-validator-option': 7.18.6
+<<<<<<< HEAD
       browserslist: 4.21.2
+=======
+      browserslist: 4.21.1
+>>>>>>> main
       semver: 6.3.0
     dev: true
 
@@ -733,8 +768,13 @@ packages:
       - encoding
     dev: true
 
+<<<<<<< HEAD
   /@octokit/openapi-types/12.9.0:
     resolution: {integrity: sha512-x0wjPEnD487oMjODOSIDdVNBebyrAPE4edY0bsxp/ZX1XPPnWQWXseixbhMa5KcwpbHVdk4qbC3zzedoMdP/YQ==}
+=======
+  /@octokit/openapi-types/12.8.0:
+    resolution: {integrity: sha512-ydcKLs2KKcxlhpdWLzJxEBDEk/U5MUeqtqkXlrtAUXXFPs6vLl1PEGghFC/BbpleosB7iXs0Z4P2DGe7ZT5ZNg==}
+>>>>>>> main
     dev: true
 
   /@octokit/plugin-paginate-rest/2.21.2_@octokit+core@2.5.4:
@@ -808,7 +848,11 @@ packages:
   /@octokit/types/6.39.0:
     resolution: {integrity: sha512-Mq4N9sOAYCitTsBtDdRVrBE80lIrMBhL9Jbrw0d+j96BAzlq4V+GLHFJbHokEsVvO/9tQupQdoFdgVYhD2C8UQ==}
     dependencies:
+<<<<<<< HEAD
       '@octokit/openapi-types': 12.9.0
+=======
+      '@octokit/openapi-types': 12.8.0
+>>>>>>> main
     dev: true
 
   /@rollup/pluginutils/4.2.1:
@@ -1096,8 +1140,13 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
+<<<<<<< HEAD
   /@types/node/16.11.44:
     resolution: {integrity: sha512-gwP6+QDgL5TDBIWh1lbYh3EFPU11pa+8xcamcsA3ROkp3A9X+/3Y5cRgq93VPEEE+CGfxlQnqkg1kkWGBgh3fw==}
+=======
+  /@types/node/16.11.43:
+    resolution: {integrity: sha512-GqWykok+3uocgfAJM8imbozrqLnPyTrpFlrryURQlw1EesPUCx5XxTiucWDSFF9/NUEXDuD4bnvHm8xfVGWTpQ==}
+>>>>>>> main
     dev: true
 
   /@types/node/17.0.45:
@@ -1288,7 +1337,11 @@ packages:
     dependencies:
       upath: 2.0.1
       vscode-html-languageservice: 4.2.5
+<<<<<<< HEAD
       vscode-jsonrpc: 8.0.2
+=======
+      vscode-jsonrpc: 8.0.1
+>>>>>>> main
       vscode-uri: 3.0.3
     dev: true
 
@@ -1303,7 +1356,11 @@ packages:
     resolution: {integrity: sha512-jbVBXOBOeKc6Rb7dzyiq5b+FfYsXFWGFLLDZok5U+JoFujxoPfn5HwX9A3t+RW/NRwQkZxrdiPmW8b69B5nMKQ==}
     dependencies:
       '@volar/shared': 0.30.6
+<<<<<<< HEAD
       vscode-languageserver-types: 3.17.2
+=======
+      vscode-languageserver-types: 3.17.1
+>>>>>>> main
     dev: true
 
   /@volar/vue-code-gen/0.30.6:
@@ -1324,7 +1381,11 @@ packages:
       emmet: 2.3.6
       jsonc-parser: 2.3.1
       vscode-languageserver-textdocument: 1.0.5
+<<<<<<< HEAD
       vscode-languageserver-types: 3.17.2
+=======
+      vscode-languageserver-types: 3.17.1
+>>>>>>> main
       vscode-nls: 5.0.1
       vscode-uri: 2.1.2
     dev: true
@@ -1501,7 +1562,10 @@ packages:
       magic-string: 0.25.9
       postcss: 8.4.14
       source-map: 0.6.1
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> main
 
   /@vue/compiler-ssr/3.2.36:
     resolution: {integrity: sha512-+KugInUFRvOxEdLkZwE+W43BqHyhBh0jpYXhmqw1xGq2dmE6J9eZ8UUSOKNhdHtQ/iNLWWeK/wPZkVLUf3YGaw==}
@@ -1514,7 +1578,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.37
       '@vue/shared': 3.2.37
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> main
 
   /@vue/component-compiler-utils/3.3.0:
     resolution: {integrity: sha512-97sfH2mYNU+2PzGrmK2haqffDpVASuib9/w2/noxiFi31Z54hW+q3izKQXXQZSNhtiUpAI36uSuYepeBe4wpHQ==}
@@ -1531,12 +1598,6 @@ packages:
       prettier: 2.7.1
     dev: true
 
-  /@vue/composition-api/1.7.0:
-    resolution: {integrity: sha512-hxOgLYR+wjuPX9bkP2pAPlqUs98XxBoa9DSLyp1z6+YR92wC42PZcZKs4d+VRtcv4udOv041Kss+F6ap5nj8YA==}
-    peerDependencies:
-      vue: '>= 2.5 < 2.7'
-    dev: true
-
   /@vue/composition-api/1.7.0_vue@2.7.5:
     resolution: {integrity: sha512-hxOgLYR+wjuPX9bkP2pAPlqUs98XxBoa9DSLyp1z6+YR92wC42PZcZKs4d+VRtcv4udOv041Kss+F6ap5nj8YA==}
     peerDependencies:
@@ -1544,6 +1605,23 @@ packages:
     dependencies:
       vue: 2.7.5
     dev: false
+
+<<<<<<< HEAD
+  /@vue/composition-api/1.7.0_vue@2.7.5:
+=======
+  /@vue/composition-api/1.7.0_vue@3.2.37:
+>>>>>>> main
+    resolution: {integrity: sha512-hxOgLYR+wjuPX9bkP2pAPlqUs98XxBoa9DSLyp1z6+YR92wC42PZcZKs4d+VRtcv4udOv041Kss+F6ap5nj8YA==}
+    peerDependencies:
+      vue: '>= 2.5 < 2.7'
+    dependencies:
+<<<<<<< HEAD
+      vue: 2.7.5
+    dev: false
+=======
+      vue: 3.2.37
+    dev: true
+>>>>>>> main
 
   /@vue/devtools-api/6.2.1:
     resolution: {integrity: sha512-OEgAMeQXvCoJ+1x8WyQuVZzFo0wcyCmUR3baRVLmKBo1LmYZWMlRiXlux5jd0fqVJu6PfDbOrZItVqUEzLobeQ==}
@@ -1565,7 +1643,10 @@ packages:
       '@vue/shared': 3.2.37
       estree-walker: 2.0.2
       magic-string: 0.25.9
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> main
 
   /@vue/reactivity/3.2.36:
     resolution: {integrity: sha512-c2qvopo0crh9A4GXi2/2kfGYMxsJW4tVILrqRPydVGZHhq0fnzy6qmclWOhBFckEhmyxmpHpdJtIRYGeKcuhnA==}
@@ -1630,7 +1711,10 @@ packages:
       '@vue/compiler-ssr': 3.2.37
       '@vue/shared': 3.2.37
       vue: 3.2.37
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> main
 
   /@vue/shared/3.2.24:
     resolution: {integrity: sha512-BUgRiZCkCrqDps5aQ9av05xcge3rn092ztKIh17tHkeEFgP4zfXMQWBA2zfdoCdCEdBL26xtOv+FZYiOp9RUDA==}
@@ -1892,15 +1976,26 @@ packages:
       fill-range: 7.0.1
     dev: true
 
+<<<<<<< HEAD
   /browserslist/4.21.2:
     resolution: {integrity: sha512-MonuOgAtUB46uP5CezYbRaYKBNt2LxP0yX+Pmj4LkcDFGkn9Cbpi83d9sCjwQDErXsIJSzY5oKGDbgOlF/LPAA==}
+=======
+  /browserslist/4.21.1:
+    resolution: {integrity: sha512-Nq8MFCSrnJXSc88yliwlzQe3qNe3VntIjhsArW9IJOEPSHNx23FalwApUVbzAWABLhYJJ7y8AynWI/XM8OdfjQ==}
+>>>>>>> main
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001366
+<<<<<<< HEAD
       electron-to-chromium: 1.4.189
       node-releases: 2.0.6
       update-browserslist-db: 1.0.4_browserslist@4.21.2
+=======
+      electron-to-chromium: 1.4.187
+      node-releases: 2.0.6
+      update-browserslist-db: 1.0.4_browserslist@4.21.1
+>>>>>>> main
     dev: true
 
   /cacache/14.0.0:
@@ -2542,8 +2637,13 @@ packages:
       jake: 10.8.5
     dev: true
 
+<<<<<<< HEAD
   /electron-to-chromium/1.4.189:
     resolution: {integrity: sha512-dQ6Zn4ll2NofGtxPXaDfY2laIa6NyCQdqXYHdwH90GJQW0LpJJib0ZU/ERtbb0XkBEmUD2eJtagbOie3pdMiPg==}
+=======
+  /electron-to-chromium/1.4.187:
+    resolution: {integrity: sha512-t3iFLHVIMhB8jGZ+8ui951nz6Bna5qKfhxezG3wzXdBJ79qFKPsE2chjjVFNqC1ewhfrPQrw9pmVeo4FFpZeQA==}
+>>>>>>> main
     dev: true
 
   /emmet/2.3.6:
@@ -6139,13 +6239,21 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+<<<<<<< HEAD
   /update-browserslist-db/1.0.4_browserslist@4.21.2:
+=======
+  /update-browserslist-db/1.0.4_browserslist@4.21.1:
+>>>>>>> main
     resolution: {integrity: sha512-jnmO2BEGUjsMOe/Fg9u0oczOe/ppIDZPebzccl1yDWGLFP16Pa1/RM5wEoKYPG2zstNcDuAStejyxsOuKINdGA==}
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
     dependencies:
+<<<<<<< HEAD
       browserslist: 4.21.2
+=======
+      browserslist: 4.21.1
+>>>>>>> main
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
@@ -6293,7 +6401,11 @@ packages:
     resolution: {integrity: sha512-DT7+7vfdT2HDNjDoXWtYJ0lVDdeDEdbMNdK4PKqUl2MS8g7PWt7J5G9B6k9lYox8nOfhCEjLnoNC3UKHHCR1lg==}
     dependencies:
       vscode-languageserver-textdocument: 1.0.5
+<<<<<<< HEAD
       vscode-languageserver-types: 3.17.2
+=======
+      vscode-languageserver-types: 3.17.1
+>>>>>>> main
       vscode-nls: 5.0.1
       vscode-uri: 3.0.3
     dev: true
@@ -6302,7 +6414,11 @@ packages:
     resolution: {integrity: sha512-dbr10KHabB9EaK8lI0XZW7SqOsTfrNyT3Nuj0GoPi4LjGKUmMiLtsqzfedIzRTzqY+w0FiLdh0/kQrnQ0tLxrw==}
     dependencies:
       vscode-languageserver-textdocument: 1.0.5
+<<<<<<< HEAD
       vscode-languageserver-types: 3.17.2
+=======
+      vscode-languageserver-types: 3.17.1
+>>>>>>> main
       vscode-nls: 5.0.1
       vscode-uri: 3.0.3
     dev: true
@@ -6312,11 +6428,16 @@ packages:
     dependencies:
       jsonc-parser: 3.1.0
       vscode-languageserver-textdocument: 1.0.5
+<<<<<<< HEAD
       vscode-languageserver-types: 3.17.2
+=======
+      vscode-languageserver-types: 3.17.1
+>>>>>>> main
       vscode-nls: 5.0.1
       vscode-uri: 3.0.3
     dev: true
 
+<<<<<<< HEAD
   /vscode-jsonrpc/8.0.2:
     resolution: {integrity: sha512-RY7HwI/ydoC1Wwg4gJ3y6LpU9FJRZAUnTYMXthqhFXXu77ErDd/xkREpGuk4MyYkk4a+XDWAMqe0S3KkelYQEQ==}
     engines: {node: '>=14.0.0'}
@@ -6337,6 +6458,28 @@ packages:
     resolution: {integrity: sha512-zHhCWatviizPIq9B7Vh9uvrH6x3sK8itC84HkamnBWoDFJtzBf7SWlpLCZUit72b3os45h6RWQNC9xHRDF8dRA==}
     dev: true
 
+=======
+  /vscode-jsonrpc/8.0.1:
+    resolution: {integrity: sha512-N/WKvghIajmEvXpatSzvTvOIz61ZSmOSa4BRA4pTLi+1+jozquQKP/MkaylP9iB68k73Oua1feLQvH3xQuigiQ==}
+    engines: {node: '>=14.0.0'}
+    dev: true
+
+  /vscode-languageserver-protocol/3.17.1:
+    resolution: {integrity: sha512-BNlAYgQoYwlSgDLJhSG+DeA8G1JyECqRzM2YO6tMmMji3Ad9Mw6AW7vnZMti90qlAKb0LqAlJfSVGEdqMMNzKg==}
+    dependencies:
+      vscode-jsonrpc: 8.0.1
+      vscode-languageserver-types: 3.17.1
+    dev: true
+
+  /vscode-languageserver-textdocument/1.0.5:
+    resolution: {integrity: sha512-1ah7zyQjKBudnMiHbZmxz5bYNM9KKZYz+5VQLj+yr8l+9w3g+WAhCkUkWbhMEdC5u0ub4Ndiye/fDyS8ghIKQg==}
+    dev: true
+
+  /vscode-languageserver-types/3.17.1:
+    resolution: {integrity: sha512-K3HqVRPElLZVVPtMeKlsyL9aK0GxGQpvtAUTfX4k7+iJ4mc1M+JM+zQwkgGy2LzY0f0IAafe8MKqIkJrxfGGjQ==}
+    dev: true
+
+>>>>>>> main
   /vscode-nls/5.0.1:
     resolution: {integrity: sha512-hHQV6iig+M21lTdItKPkJAaWrxALQb/nqpVffakO4knJOh3DrU2SXOMzUzNgo1eADPzu3qSsJY1weCzvR52q9A==}
     dev: true
@@ -6352,7 +6495,11 @@ packages:
       pug-lexer: 5.0.1
       pug-parser: 6.0.0
       vscode-languageserver-textdocument: 1.0.5
+<<<<<<< HEAD
       vscode-languageserver-types: 3.17.2
+=======
+      vscode-languageserver-types: 3.17.1
+>>>>>>> main
     dev: true
 
   /vscode-typescript-languageservice/0.30.6:
@@ -6362,7 +6509,11 @@ packages:
       '@volar/shared': 0.30.6
       semver: 7.3.7
       upath: 2.0.1
+<<<<<<< HEAD
       vscode-languageserver-protocol: 3.17.2
+=======
+      vscode-languageserver-protocol: 3.17.1
+>>>>>>> main
       vscode-languageserver-textdocument: 1.0.5
       vscode-nls: 5.0.1
     dev: true
@@ -6392,23 +6543,14 @@ packages:
       vscode-css-languageservice: 5.4.2
       vscode-html-languageservice: 4.2.5
       vscode-json-languageservice: 4.2.1
+<<<<<<< HEAD
       vscode-languageserver-protocol: 3.17.2
+=======
+      vscode-languageserver-protocol: 3.17.1
+>>>>>>> main
       vscode-languageserver-textdocument: 1.0.5
       vscode-pug-languageservice: 0.30.6
       vscode-typescript-languageservice: 0.30.6
-    dev: true
-
-  /vue-i18n-bridge/9.2.0-beta.37:
-    resolution: {integrity: sha512-jcSsOOpn1DLnd7rWokovFSO+y3FnOFO54stwGf16MgImgD2wFI7TbgnnwlLBMUPqiUh8BBioPK3RhAg3j68EPg==}
-    engines: {node: '>= 14'}
-    dependencies:
-      '@intlify/core-base': 9.2.0-beta.37
-      '@intlify/shared': 9.2.0-beta.37
-      '@intlify/vue-devtools': 9.2.0-beta.37
-      '@vue/composition-api': 1.7.0
-      '@vue/devtools-api': 6.2.1
-    transitivePeerDependencies:
-      - vue
     dev: true
 
   /vue-i18n-bridge/9.2.0-beta.37_vue@2.7.5:
@@ -6418,6 +6560,28 @@ packages:
       '@intlify/core-base': 9.2.0-beta.37
       '@intlify/shared': 9.2.0-beta.37
       '@intlify/vue-devtools': 9.2.0-beta.37
+<<<<<<< HEAD
+      '@vue/composition-api': 1.7.0
+=======
+      '@vue/composition-api': 1.7.0_vue@2.7.5
+>>>>>>> main
+      '@vue/devtools-api': 6.2.1
+    transitivePeerDependencies:
+      - vue
+    dev: false
+
+<<<<<<< HEAD
+  /vue-i18n-bridge/9.2.0-beta.37_vue@2.7.5:
+=======
+  /vue-i18n-bridge/9.2.0-beta.37_vue@3.2.37:
+>>>>>>> main
+    resolution: {integrity: sha512-jcSsOOpn1DLnd7rWokovFSO+y3FnOFO54stwGf16MgImgD2wFI7TbgnnwlLBMUPqiUh8BBioPK3RhAg3j68EPg==}
+    engines: {node: '>= 14'}
+    dependencies:
+      '@intlify/core-base': 9.2.0-beta.37
+      '@intlify/shared': 9.2.0-beta.37
+      '@intlify/vue-devtools': 9.2.0-beta.37
+<<<<<<< HEAD
       '@vue/composition-api': 1.7.0_vue@2.7.5
       '@vue/devtools-api': 6.2.1
     transitivePeerDependencies:
@@ -6439,6 +6603,17 @@ packages:
       '@vue/devtools-api': 6.2.1
     dev: true
 
+=======
+      '@vue/composition-api': 1.7.0_vue@3.2.37
+      '@vue/devtools-api': 6.2.1
+    transitivePeerDependencies:
+      - vue
+    dev: true
+
+  /vue-i18n/8.27.2:
+    resolution: {integrity: sha512-QVzn7u2WVH8F7eSKIM00lujC7x1mnuGPaTnDTmB01Hd709jDtB9kYtBqM+MWmp5AJRx3gnqAdZbee9MelqwFBg==}
+
+>>>>>>> main
   /vue-i18n/9.2.0-beta.37_vue@3.2.37:
     resolution: {integrity: sha512-R0YO/VhHrZHIu1MdHTgs8T0e2jaF3O1N79cvkyO1b+VkuSeo1Cxy7qDQaq+WdBZXAZENS/WPX+ELE5cZO616AQ==}
     engines: {node: '>= 14'}
@@ -6450,7 +6625,10 @@ packages:
       '@intlify/vue-devtools': 9.2.0-beta.37
       '@vue/devtools-api': 6.2.1
       vue: 3.2.37
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> main
 
   /vue-router/3.5.4:
     resolution: {integrity: sha512-x+/DLAJZv2mcQ7glH2oV9ze8uPwcI+H+GgTgTmb5I55bCgY3+vXWIsqbYUzbBSZnwFHEJku4eoaH/x98veyymQ==}
@@ -6515,7 +6693,10 @@ packages:
       '@vue/runtime-dom': 3.2.37
       '@vue/server-renderer': 3.2.37_vue@3.2.37
       '@vue/shared': 3.2.37
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> main
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
