@@ -59,7 +59,6 @@
     "vite": "^2.9.1",
     "vitest": "^0.18.0",
     "@vue/composition-api": "^1.4.9",
-    "vue": "^3",
     "vue-i18n": "next",
     "vue-i18n-bridge": "next",
     "vue-i18n-legacy": "npm:vue-i18n@8",
