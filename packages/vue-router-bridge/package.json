@@ -12,6 +12,9 @@
   "peerDependenciesMeta": {
     "@vue/composition-api": {
       "optional": true
+    },
+    "vue-router": {
+      "optional": true
     }
   },
   "main": "lib/index.cjs",
