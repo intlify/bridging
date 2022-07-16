@@ -1,5 +1,5 @@
 import VueRouter from 'vue-router'
-import { getCurrentInstance, reactive } from '@vue/composition-api/dist/vue-composition-api.mjs'
+import { getCurrentInstance, reactive } from 'vue-demi'
 
 var isVueRouter3 = true
 var isVueRouter4 = false

@@ -49,12 +49,23 @@ function checkVueRouter(pkg) {
 }
 
 function checkVCA() {
-  const VCA = loadModule('@vue/composition-api')
-  if (!VCA) {
-    warn('Composition API plugin is not found. Please run "npm install @vue/composition-api" to install.')
+  const demi = loadModule('vue-demi')
+  if (!demi) {
     return false
   }
-  return true
+
+  if (demi.Vue.version.startsWith('2.7.')) {
+    return true
+  } else if (demi.Vue.version.startsWith('2.')) {
+    const VCA = loadModule('@vue/composition-api')
+    if (!VCA) {
+      warn('Composition API plugin is not found. Please run "npm install @vue/composition-api" to install.')
+      return false
+    }
+    return true
+  } else {
+    return false
+  }
 }
 
 function switchVersion(version, router) {

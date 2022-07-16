@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import VueRouter from 'vue-router'
 
-import type { ComputedRef, ComponentPublicInstance } from '@vue/composition-api'
+import type { ComponentPublicInstance } from 'vue-demi'
 import type { Route, RouterOptions } from 'vue-router'
 
 /**

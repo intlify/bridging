@@ -1,8 +1,8 @@
 var VueRouter = require('vue-router') // eslint-disable-line @typescript-eslint/no-var-requires
-var VueCompositionAPI = require('@vue/composition-api') // eslint-disable-line @typescript-eslint/no-var-requires
+var VueDemi = require('vue-demi') // eslint-disable-line @typescript-eslint/no-var-requires
 
 const useRouter = () => {
-  const instance = VueCompositionAPI.getCurrentInstance()
+  const instance = VueDemi.getCurrentInstance()
   if (instance == null) {
     throw new Error(`should be used in setup`)
   }
@@ -11,12 +11,12 @@ const useRouter = () => {
 }
 
 const useRoute = () => {
-  const instance = VueCompositionAPI.getCurrentInstance()
+  const instance = VueDemi.getCurrentInstance()
   if (instance == null) {
     throw new Error(`should be used in setup`)
   }
   const vm = instance.proxy || instance
-  return VueCompositionAPI.reactive(vm.$route)
+  return VueDemi.reactive(vm.$route)
 }
 
 exports.useRouter = useRouter
