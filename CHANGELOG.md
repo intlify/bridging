@@ -1,4 +1,20 @@
 
+## v0.4.0 (2022-07-17)
+
+#### :star: Features
+* `vue-router-bridge`
+  * [#23](https://github.com/intlify/bridging/pull/23) feat(vue-router-bridge): support vue 2.7 ([@kazupon](https://github.com/kazupon))
+
+#### :zap: Improvement Features
+* `vue-i18n-bridge`, `vue-router-bridge`
+  * [#22](https://github.com/intlify/bridging/pull/22) fix(vue-i18n-bridge,vue-router-bridge): peerDependenciesMeta ([@kazupon](https://github.com/kazupon))
+* `vue-router-bridge`
+  * [#21](https://github.com/intlify/bridging/pull/21) fix(vue-router-bridge): improve vue-router-bridge interface ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.3.6 (2022-04-08)
 
 #### :bug: Bug Fixes
