@@ -1,8 +1,8 @@
 import execa from 'execa'
-import path from 'pathe'
+import { resolve, dirname } from 'pathe'
 import { promises as fs, readFileSync } from 'fs'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
+const __dirname = dirname(new URL(import.meta.url).pathname)
 
 async function readJson(target) {
   const file = await fs.readFile(target, 'utf8')
@@ -40,7 +40,7 @@ export default {
   installCommand: () => 'pnpm install --silent',
   buildCommand: ({ isYarn, version }) => 'pnpm build',
   beforeCommitChanges: async ({ nextVersion, exec, dir }) => {
-    const pkg = await readJson(path.resolve(__dirname, './package.json'))
+    const pkg = await readJson(resolve(__dirname, './package.json'))
     await commitChangelog(pkg.version, nextVersion)
     await exec('pnpm fix')
   },
@@ -49,7 +49,7 @@ export default {
   shouldRelease: () => true,
   releases: {
     extractChangelog: ({ version, dir }) => {
-      const changelogPath = path.resolve(dir, 'CHANGELOG.md')
+      const changelogPath = resolve(dir, 'CHANGELOG.md')
       try {
         const changelogFile = readFileSync(changelogPath, 'utf-8')
         const ret = extractSpecificChangelog(changelogFile, version)
