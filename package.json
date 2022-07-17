@@ -33,7 +33,9 @@
       }
     },
     "peerDependencyRules": {
-      "ignoreMissing": ["vue"]
+      "ignoreMissing": [
+        "vue"
+      ]
     }
   },
   "devDependencies": {
@@ -100,12 +102,12 @@
   "scripts": {
     "build": "echo build!",
     "fix": "run-p lint:fix format:fix",
-    "format:fix": "run-p \"format:prettier --write\"",
+    "format:fix": "run-p \"format:prettier -- --write\"",
     "format:prettier": "prettier --config .prettierrc --ignore-path .prettierignore '**/*.{js,mjs,json,html}'",
     "lint": "run-p lint:action lint:codes",
     "lint:action": "node-actionlint",
     "lint:codes": "eslint --config .eslintrc.js --ext .js,.mjs,.ts,.vue ./packages",
-    "lint:fix": "run-p \"lint:codes --fix\"",
+    "lint:fix": "run-p \"lint:codes -- --fix\"",
     "lint:secret": "npx secretlint \"**/*\"",
     "switch:i18n9": "node ./packages/vue-i18n-bridge/bin/switch.js 9",
     "switch:i18n8": "node ./packages/vue-i18n-bridge/bin/switch.js 8 vue-i18n-legacy",
