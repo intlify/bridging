@@ -8,11 +8,9 @@ on:
       - .github/labels.yml
       - .github/workflows/github-label-sync.yml
   workflow_dispatch:
-permissions:
-  contents: write
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - uses: r7kamura/github-label-sync-action@v0
