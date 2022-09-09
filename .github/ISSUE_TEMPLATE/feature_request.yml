@@ -1,6 +1,6 @@
-name: "\U0001F680 New feature proposal"
+name: 🚀 New feature proposal
 description: Propose a new feature
-labels: ['Status: Proposal']
+labels: [feature]
 body:
   - type: markdown
     attributes:
@@ -10,7 +10,7 @@ body:
     id: feature-description
     attributes:
       label: Clear and concise description of the problem
-      description: If you intend to submit a PR for this issue, tell us in the description. Thanks!
+      description: 'As a developer using @intlify/bridging I want [goal / wish] so that [benefit]. If you intend to submit a PR for this issue, tell us in the description. Thanks!'
     validations:
       required: true
   - type: textarea
@@ -36,9 +36,9 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
-        - label: Read the [Contributing Guidelines](https://github.com/intlify/bridging/blob/main/.github/contributing.md).
+        - label: Follow our [Code of Conduct](https://github.com/intlify/bridging/blob/main/CODE_OF_CONDUCT.md)
           required: true
-        - label: Read the README
+        - label: Read the [Contributing Guide](https://github.com/intlify/bridging/blob/main/CONTRIBUTING.md).
           required: true
-        - label: Check that there isn't already an issue that reports the same bug to avoid creating a duplicate.
+        - label: Check that there isn't already an issue that request the same feature to avoid creating a duplicate.
           required: true
