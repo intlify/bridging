@@ -63,7 +63,6 @@ function prepareTestPackage(params) {
   )
   if (agent === 'yarn@berry') {
     fs.writeFileSync(join(dir.test, 'yarn.lock'), '', 'utf-8')
-    execSync(`yarn install`, { cwd: dir.test, stdio: 'inherit' })
   }
 
   installDeps(params)
