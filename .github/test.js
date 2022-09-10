@@ -64,7 +64,11 @@ function prepareTestPackage(params) {
     JSON.stringify({
       name: `${pkg}-test-${type}`,
       version: versions.target,
-      type
+      type,
+      // for yarn v3
+      installConfig: {
+        hoistingLimits: 'workspaces'
+      }
     }),
     'utf-8'
   )
