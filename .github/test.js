@@ -79,13 +79,13 @@ function prepareTestPackage(params) {
   if (agent === 'yarn@berry') {
     // disable pnp
     execSync(`touch yarn.lock`, { cwd: dir.test, stdio: 'inherit' })
-    const yarnVersion = execSync(`yarn -v`)
+    const yarnVersion = execSync(`yarn -v`).toString()
     console.log('yarn vertion', yarnVersion)
     execSync(`touch .yarnrc.yml`, { cwd: dir.test, stdio: 'inherit' })
     // prettier-ignore
     fs.writeFileSync(
-      join(dir.test, '.yarnrc.yml'),
-      `yarnPath: .yarn/releases/yarn-${yarnVersion}.cjs\nnodeLinker: node-modules`,
+      join(dir.test, '.yarnrc.yml'), `yarnPath: .yarn/releases/yarn-${yarnVersion}.cjs
+nodeLinker: node-modules`,
       'utf-8'
     )
   }
