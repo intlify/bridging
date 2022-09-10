@@ -71,7 +71,7 @@ function getModule(testDir, pkg, index) {
 
 function getTest(pkg) {
   try {
-    return require(`./${pkg}`)
+    return require(`./test/${pkg}`)
   } catch (e) {
     throw e
   }
