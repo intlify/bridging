@@ -16,7 +16,7 @@ function getPkgVersion(pkg) {
 
 function getRootAndDir(pkg, type) {
   const target = resolve(__dirname, `../packages/${pkg}`)
-  const test = resolve(ROOT, `../../${pkg}-test-${type}`)
+  const test = resolve(target, `../../${pkg}-test-${type}`)
   console.log(`target: ${target}`)
   console.log(`test: ${test}`)
   return [target, test]
@@ -26,7 +26,7 @@ function pack(params) {
   const { pkg, versions, dir } = params
 
   execSync('npm pack', { cwd: dir.target, stdio: 'inherit' })
-  return join(dir.target, `${pkg}-${versions.target}.tgz`)
+  return join(dir.target, `intlify-${pkg}-${versions.target}.tgz`)
 }
 
 function installDeps(params) {
@@ -43,7 +43,7 @@ function installDeps(params) {
 }
 
 function prepareTestPackage(params) {
-  const { type, pkg, dir } = params
+  const { type, pkg, dir, versions } = params
 
   if (fs.existsSync(dir.test)) {
     fs.rmSync(dir.test, { recursive: true })
@@ -54,7 +54,7 @@ function prepareTestPackage(params) {
     join(dir.test, 'package.json'),
     JSON.stringify({
       name: `${pkg}-test-${type}`,
-      version,
+      version: versions.target,
       type
     }),
     'utf-8'
@@ -71,13 +71,14 @@ function getModule(testDir, pkg, index) {
 
 function getTest(pkg) {
   try {
-    return require(`./test/${pkg}`)
+    return require(`./test/${pkg}.js`)
   } catch (e) {
     throw e
   }
 }
 
 const testMod = getTest(pkg)
+console.log('testMod', testMod)
 const [targetDir, testDir] = getRootAndDir(pkg, type)
 const isVue2 = vueVersion.startsWith('2')
 const isVue27 = vueVersion.startsWith('2.7')
@@ -95,7 +96,7 @@ const params = {
     target: targetDir,
     test: testDir
   },
-  packageDeps: testMod(isVue2, isVue27)
+  packageDeps: testMod.getPackageDeps(isVue2, isVue27)
 }
 
 prepareTestPackage(params)
