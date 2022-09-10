@@ -88,6 +88,8 @@ function prepareTestPackage(params) {
 nodeLinker: node-modules`,
       'utf-8'
     )
+    execSync(`yarn install`, { cwd: dir.test, stdio: 'inherit' })
+    execSync(`find .`, { cwd: dir.test, stdio: 'inherit' })
   }
 
   installDeps(params)
