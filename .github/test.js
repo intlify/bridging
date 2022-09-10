@@ -77,7 +77,17 @@ function prepareTestPackage(params) {
     'utf-8'
   )
   if (agent === 'yarn@berry') {
-    fs.writeFileSync(join(dir.test, 'yarn.lock'), '', 'utf-8')
+    // disable pnp
+    execSync(`touch yarn.lock`, { cwd: dir.test, stdio: 'inherit' })
+    const yarnVersion = execSync(`yarn -v`)
+    console.log('yarn vertion', yarnVersion)
+    execSync(`touch .yarnrc.yml`, { cwd: dir.test, stdio: 'inherit' })
+    // prettier-ignore
+    fs.writeFileSync(
+      join(dir.test, '.yarnrc.yml'),
+      `yarnPath: .yarn/releases/yarn-${yarnVersion}.cjs\nnodeLinker: node-modules`,
+      'utf-8'
+    )
   }
 
   installDeps(params)
