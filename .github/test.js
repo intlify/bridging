@@ -115,7 +115,7 @@ prepareTestPackage(params)
 const indexFile = isCjs ? 'index.cjs' : 'index.mjs'
 const mod = getModule(testDir, pkg, indexFile)
 
-let failed = true
+let failed = false
 
 if (failed) {
   setTimeout(() => {
