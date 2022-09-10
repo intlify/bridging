@@ -149,6 +149,38 @@ const mod = getModule(testDir, pkg, indexFile)
 
 let failed = false
 
+;(function versionCheck() {
+  if (pkg === 'vue-i18n-bridge') {
+    const outputVersion = execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge').version)"`, {
+      cwd: testDir
+    })
+      .toString()
+      .trim()
+    console.log('version: ' + outputVersion)
+
+    // isVueI18n8
+    const is8 = execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge').isVueI18n8)"`, { cwd: testDir })
+      .toString()
+      .trim()
+
+    if (is8 !== `${isVue2}`) {
+      console.log(`isVueI18n8: ${is8} !== ${isVue2}`)
+      failed = true
+    }
+  } else {
+    // for vue-router-bridge
+    // isVueRouter3
+    const is3 = execSync(`node -e "console.log(require('@intlify/vue-router-bridge').isVueRouter3)"`, { cwd: testDir })
+      .toString()
+      .trim()
+
+    if (is3 !== `${isVue2}`) {
+      console.log(`isVueRouter3: ${is8} !== ${isVue2}`)
+      failed = true
+    }
+  }
+})()
+
 if (failed) {
   setTimeout(() => {
     process.exit(1)
