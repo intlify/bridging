@@ -10,16 +10,18 @@ on:
 
 jobs:
   lint:
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [14.x]
+
+    runs-on: ${{ matrix.os }}
+
     steps:
       - name: Checkout codes
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -38,44 +40,114 @@ jobs:
       - name: Lint codes
         run: pnpm lint
 
-  test:
-    runs-on: ${{ matrix.os }}
+  npm:
     strategy:
       matrix:
+        node: [14.x, 16.x]
         os: [ubuntu-latest]
-        node: [14]
+        vue: [2.6, 2.7, 3]
+        bridge: [vue-i18n-bridge, vue-router-birdge]
+        type: [commonjs, module]
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
     steps:
       - name: Checkout codes
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7.9.3
+          fetch-depth: 0
 
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: 'pnpm'
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+      - name: Print npm version
+        run: npm -v
 
       - name: Test
-        run: pnpm test
+        run: node .github/test.js "npm" ${{ matrix.bridge }} ${{ matrix.vue }} ${{matrix.type}}
+
+  yarn:
+    strategy:
+      matrix:
+        node: [14.x, 16.x]
+        os: [ubuntu-latest]
+        vue: [2.6, 2.7, 3]
+        yarn: [latest, berry]
+        bridge: [vue-i18n-bridge, vue-router-birdge]
+        type: [commonjs, module]
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install yarn
+        run: yarn set version ${{ matrix.yarn }}
+
+      - name: Print yarn version
+        run: yarn --version
+
+      - name: Test
+        run: node .github/test.js "yarn" ${{ matrix.bridge }} ${{ matrix.vue }} ${{matrix.type}}
+
+  pnpm:
+    strategy:
+      matrix:
+        node: [14.x, 16.x]
+        os: [ubuntu-latest]
+        bridge: [vue-i18n-bridge, vue-router-birdge]
+        vue: [2.6, 2.7, 3]
+        type: [commonjs, module]
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install pnpm
+        run: npm i -g pnpm
+
+      - name: Print pnpm version
+        run: pnpm -v
+
+      - name: Test
+        run: node .github/test.js "pnpm" ${{ matrix.bridge }} ${{ matrix.vue }} ${{matrix.type}}
 
   edge-release:
     needs:
-      - test
+      - npm
+      - yarn
+      - pnpm
       - lint
-    runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [14.x]
+
+    runs-on: ${{ matrix.os }}
+
     steps:
       - name: Checkout codes
         uses: actions/checkout@v2
