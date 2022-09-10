@@ -36,7 +36,7 @@ function installDeps(params) {
 
   const tarball = pack(params)
 
-  let installCmd = agent.startsWith('yarn') ? `${agent} add` : `${agent} i`
+  let installCmd = agent.startsWith('yarn') ? `yarn add` : `${agent} i`
   execSync(`${installCmd} ${packageDeps}`, { cwd: dir.test, stdio: 'inherit' })
   execSync(`${installCmd} ${agent.startsWith('yarn') ? `file:${tarball}` : tarball} --force`, {
     cwd: dir.test,
