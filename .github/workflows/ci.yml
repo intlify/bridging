@@ -75,7 +75,7 @@ jobs:
         node: [14.x, 16.x]
         os: [ubuntu-latest]
         vue: [2.6, 2.7, 3]
-        yarn: [latest, berry]
+        yarn: [1.22.19, berry]
         bridge: [vue-i18n-bridge, vue-router-bridge]
         type: [commonjs, module]
       fail-fast: false
@@ -99,12 +99,8 @@ jobs:
       - name: Print yarn version
         run: yarn --version
 
-      - name: yarn v3
-        if: matrix.yarn == 'berry'
-        run: yarn set version '3.1.0'
-
       - name: Test
-        run: node .github/test.js "yarn" ${{ matrix.bridge }} ${{ matrix.vue }} ${{matrix.type}}
+        run: node .github/test.js "yarn@${{ matrix.yarn }}" ${{ matrix.bridge }} ${{ matrix.vue }} ${{matrix.type}}
 
   pnpm:
     strategy:

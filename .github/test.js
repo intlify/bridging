@@ -36,9 +36,9 @@ function installDeps(params) {
 
   const tarball = pack(params)
 
-  let installCmd = agent === 'yarn' ? `${agent} add` : `${agent} i`
+  let installCmd = agent.startsWith('yarn') ? `${agent} add` : `${agent} i`
   execSync(`${installCmd} ${packageDeps}`, { cwd: dir.test, stdio: 'inherit' })
-  execSync(`${installCmd} ${agent === 'yarn' ? `file:${tarball}` : tarball} --force`, {
+  execSync(`${installCmd} ${agent.startsWith('yarn') ? `file:${tarball}` : tarball} --force`, {
     cwd: dir.test,
     stdio: 'inherit'
   })
@@ -61,8 +61,9 @@ function prepareTestPackage(params) {
     }),
     'utf-8'
   )
-  if (agent === 'yarn') {
+  if (agent === 'yarn@berry') {
     fs.writeFileSync(join(dir.test, 'yarn.lock'), '', 'utf-8')
+    execSync(`yarn install`, { cwd: dir.test, stdio: 'inherit' })
   }
 
   installDeps(params)
