@@ -45,7 +45,7 @@ function installDeps(params) {
 }
 
 function prepareTestPackage(params) {
-  const { type, pkg, dir, versions } = params
+  const { agent, type, pkg, dir, versions } = params
 
   if (fs.existsSync(dir.test)) {
     fs.rmSync(dir.test, { recursive: true })
@@ -61,6 +61,9 @@ function prepareTestPackage(params) {
     }),
     'utf-8'
   )
+  if (agent === 'yarn') {
+    fs.writeFileSync(join(dir.test, 'yarn.lock'), '', 'utf-8')
+  }
 
   installDeps(params)
 }
