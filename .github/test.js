@@ -99,7 +99,7 @@ function getPackageDeps(pkg, isVue2, isVue27) {
 }
 
 // const testMod = getTest(pkg)
-console.log('testMod', testMod)
+// console.log('testMod', testMod)
 const [targetDir, testDir] = getRootAndDir(pkg, type)
 const isVue2 = vueVersion.startsWith('2')
 const isVue27 = vueVersion.startsWith('2.7')
