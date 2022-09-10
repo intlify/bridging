@@ -156,7 +156,7 @@ let failed = false
       failed = true
     }
 
-    if (!isCjs && !/export\s*\{\s*isVueI18n8,\s*isVUeI18n9/gm.test(mod)) {
+    if (!isCjs && !/export\s*\{\s*isVueI18n8,\s*isVueI18n9/gm.test(mod)) {
       console.log('ESM:', mod)
       failed = true
     }
@@ -167,7 +167,7 @@ let failed = false
       failed = true
     }
 
-    if (!isCjs && !module.includes(`export default VueRouter`)) {
+    if (!isCjs && !mod.includes(`export default VueRouter`)) {
       console.log('ESM:', mod)
       failed = true
     }
