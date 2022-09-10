@@ -79,7 +79,7 @@ function prepareTestPackage(params) {
   if (agent === 'yarn@berry') {
     // disable pnp
     execSync(`touch yarn.lock`, { cwd: dir.test, stdio: 'inherit' })
-    const yarnVersion = execSync(`yarn -v`).toString()
+    const yarnVersion = execSync(`yarn -v`).toString().trim()
     console.log('yarn vertion', yarnVersion)
     execSync(`touch .yarnrc.yml`, { cwd: dir.test, stdio: 'inherit' })
     // prettier-ignore
