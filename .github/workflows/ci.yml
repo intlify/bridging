@@ -99,6 +99,10 @@ jobs:
       - name: Print yarn version
         run: yarn --version
 
+      - name: yarn v3
+        if: matrix.yarn == 'berry'
+        run: yarn set version '3.1.0'
+
       - name: Test
         run: node .github/test.js "yarn" ${{ matrix.bridge }} ${{ matrix.vue }} ${{matrix.type}}
 
