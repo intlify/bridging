@@ -42,7 +42,7 @@ function installDeps(params) {
   console.log('install tarball', tarball)
   // prettier-ignore
   execSync(`${installCmd} ${agent.startsWith('yarn')
-    ? agent === 'yarn@berry'
+    ? agent !== 'yarn@berry'
       ? `file:${tarball}`
       : tarball
     : tarball}${agent !== 'yarn@berry' ? ' --force' : ''}`, {
