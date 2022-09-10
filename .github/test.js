@@ -4,10 +4,12 @@ const { execSync } = require('child_process')
 
 const [agent, pkg, vueVersion, type = 'commonjs'] = process.argv.slice(2)
 
-function getPkgVersion(pkg) {
+function getPkgVersion(target) {
   let version = ''
   try {
-    version = require(`../packages/${pkg}/package.json`).version
+    const pkgMetaPath = resolve(target, 'package.json')
+    console.log('pkgMetaPath', pkgMetaPath)
+    version = JSON.parse(fs.readFileSync(pkgMetaPath, 'utf-8')).version
   } catch (e) {
     throw e
   }
@@ -69,16 +71,6 @@ function getModule(testDir, pkg, index) {
   return mod
 }
 
-// function getTest(pkg) {
-//   try {
-//     const target = resolve(__dirname, `./.github/test/${pkg}.js`)
-//     console.log('target test module', target)
-//     return require(target)
-//   } catch (e) {
-//     throw e
-//   }
-// }
-
 function getPackageDeps(pkg, isVue2, isVue27) {
   if (pkg === 'vue-i18n-bridge') {
     // prettier-ignore
@@ -98,8 +90,6 @@ function getPackageDeps(pkg, isVue2, isVue27) {
   }
 }
 
-// const testMod = getTest(pkg)
-// console.log('testMod', testMod)
 const [targetDir, testDir] = getRootAndDir(pkg, type)
 const isVue2 = vueVersion.startsWith('2')
 const isVue27 = vueVersion.startsWith('2.7')
@@ -111,7 +101,7 @@ const params = {
   pkg,
   versions: {
     vue: vueVersion,
-    target: getPkgVersion(pkg)
+    target: getPkgVersion(targetDir)
   },
   dir: {
     target: targetDir,
@@ -125,7 +115,7 @@ prepareTestPackage(params)
 const indexFile = isCjs ? 'index.cjs' : 'index.mjs'
 const mod = getModule(testDir, pkg, indexFile)
 
-let failed = testMod.test()
+let failed = true
 
 if (failed) {
   setTimeout(() => {
