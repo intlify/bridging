@@ -71,7 +71,7 @@ function getModule(testDir, pkg, index) {
 
 function getTest(pkg) {
   try {
-    const target = resolve(__dirname, `./test/${pkg}.js`)
+    const target = resolve(__dirname, `./.github/test/${pkg}.js`)
     console.log('target test module', target)
     return require(target)
   } catch (e) {
