@@ -49,6 +49,10 @@ function installDeps(params) {
     cwd: dir.test,
     stdio: 'inherit'
   })
+  // debug
+  if (agent === 'yarn@berry') {
+    execSync(`find .`, { cwd: dir.test, stdio: 'inherit' })
+  }
 }
 
 function prepareTestPackage(params) {
