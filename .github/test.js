@@ -149,6 +149,30 @@ const mod = getModule(testDir, pkg, indexFile)
 
 let failed = false
 
+;(function codeCheck() {
+  if (pkg === 'vue-i18n-bridge') {
+    if (isCjs && !mod.includes(`exports.isVueI18n8 = ${isVue2}`)) {
+      console.log('CJS:', mod)
+      failed = true
+    }
+
+    if (!isCjs && !/export\s*\{\s*isVueI18n8,\s*isVUeI18n9/gm.test(mod)) {
+      console.log('ESM:', mod)
+      failed = true
+    }
+  } else {
+    // for vue-router-bridge
+    if (isCjs && !mod.includes(`exports.isVueRouter3 = ${isVue2}`)) {
+      console.log('CJS:', mod)
+      failed = true
+    }
+
+    if (!isCjs && !module.includes(`export default VueRouter`)) {
+      console.log('ESM:', mod)
+      failed = true
+    }
+  }
+})()
 ;(function versionCheck() {
   if (pkg === 'vue-i18n-bridge') {
     const outputVersion = execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge').version)"`, {
@@ -175,7 +199,7 @@ let failed = false
       .trim()
 
     if (is3 !== `${isVue2}`) {
-      console.log(`isVueRouter3: ${is8} !== ${isVue2}`)
+      console.log(`isVueRouter3: ${is3} !== ${isVue2}`)
       failed = true
     }
   }
