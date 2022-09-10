@@ -69,17 +69,36 @@ function getModule(testDir, pkg, index) {
   return mod
 }
 
-function getTest(pkg) {
-  try {
-    const target = resolve(__dirname, `./.github/test/${pkg}.js`)
-    console.log('target test module', target)
-    return require(target)
-  } catch (e) {
-    throw e
+// function getTest(pkg) {
+//   try {
+//     const target = resolve(__dirname, `./.github/test/${pkg}.js`)
+//     console.log('target test module', target)
+//     return require(target)
+//   } catch (e) {
+//     throw e
+//   }
+// }
+
+function getPackageDeps(pkg, isVue2, isVue27) {
+  if (pkg === 'vue-i18n-bridge') {
+    // prettier-ignore
+    return isVue27
+      ? 'vue@2.7 vue-i18n@8 vue-i18n-bridge@9'
+      : isVue2
+        ? `vue@2.6 @vue/composition-api vue-i18n@8 vue-i18n-bridge@9`
+        : 'vue@3 vue-i18n@9'
+  } else {
+    // for vue-router-bridge
+    // prettier-ignore
+    return isVue27
+      ? 'vue@2.7 vue-router@3.6'
+      : isVue2
+        ? `vue@2.6 @vue/composition-api vue-router@3`
+        : 'vue@3 vue-router@4'
   }
 }
 
-const testMod = getTest(pkg)
+// const testMod = getTest(pkg)
 console.log('testMod', testMod)
 const [targetDir, testDir] = getRootAndDir(pkg, type)
 const isVue2 = vueVersion.startsWith('2')
@@ -98,7 +117,7 @@ const params = {
     target: targetDir,
     test: testDir
   },
-  packageDeps: testMod.getPackageDeps(isVue2, isVue27)
+  packageDeps: getPackageDeps(pkg, isVue2, isVue27)
 }
 
 prepareTestPackage(params)
