@@ -45,7 +45,7 @@ function installDeps(params) {
     ? agent === 'yarn@berry'
       ? `file:${tarball}`
       : tarball
-    : tarball} --force`, {
+    : tarball}${agent !== 'yarn@berry' ? ' --force' : ''}`, {
     cwd: dir.test,
     stdio: 'inherit'
   })
