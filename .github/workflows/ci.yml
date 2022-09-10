@@ -75,7 +75,8 @@ jobs:
         node: [14.x, 16.x]
         os: [ubuntu-latest]
         vue: [2.6, 2.7, 3]
-        yarn: [1.22.19, berry]
+        # yarn: [1.22.19, berry]
+        yarn: [1.22.19]
         bridge: [vue-i18n-bridge, vue-router-bridge]
         type: [commonjs, module]
       fail-fast: false

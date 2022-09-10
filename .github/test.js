@@ -77,6 +77,7 @@ function prepareTestPackage(params) {
     'utf-8'
   )
   if (agent === 'yarn@berry') {
+    // TODO: support for yarn berry and v3
     // disable pnp
     execSync(`touch yarn.lock`, { cwd: dir.test, stdio: 'inherit' })
     const yarnVersion = execSync(`yarn -v`).toString().trim()
