@@ -1,5 +1,6 @@
-const { switchVersion, loadModule, warn } = require('./utils') // eslint-disable-line @typescript-eslint/no-var-requires
+const { switchVersion, loadModule, warn, log } = require('./utils') // eslint-disable-line @typescript-eslint/no-var-requires
 
+log('start vue-i18n-bridge postinstall script')
 const VueI18n = loadModule('vue-i18n/package.json')
 
 if (!VueI18n || typeof VueI18n.version !== 'string') {
