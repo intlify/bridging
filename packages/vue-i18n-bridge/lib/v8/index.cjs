@@ -1,3 +1,7 @@
+Object.defineProperty(exports, '__esModule', {
+  value: true
+})
+
 var VueI18n = require('vue-i18n')
 var VueI18nBridge = require('vue-i18n-bridge')
 
