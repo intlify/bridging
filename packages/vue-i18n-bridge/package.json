@@ -7,13 +7,17 @@
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-rc.1",
-    "vue-i18n": "^8.26.1 || ^9.2.0-beta.25"
+    "vue-i18n": "^8.26.1 || ^9.2.0-beta.25",
+    "vue-i18n-bridge": "^9.2.0-beta.25"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
       "optional": true
     },
     "vue-i18n": {
+      "optional": true
+    },
+    "vue-i18n-bridge": {
       "optional": true
     }
   },
@@ -54,6 +58,7 @@
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
   },
+  "funding": "https://github.com/sponsors/kazupon",
   "homepage": "https://github.com/intlify/bridging/tree/main/packages/vue-i18n-bridge#readme",
   "repository": {
     "type": "git",
