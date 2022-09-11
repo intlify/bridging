@@ -126,12 +126,12 @@ function getPackageDeps(pkg, isVue2, isVue27) {
   }
 }
 
-function eval(snippet, { inherit = false, testDir }) {
+function eval(snippet, { inherit = false, esm = false, testDir }) {
   const options = { cwd: testDir }
   if (inherit) {
     options.stdio = 'inherit'
   }
-  const ret = execSync(`node -e "${snippet}"`, options)
+  const ret = execSync(`node --input-type=${esm ? 'module' : 'commonjs'} -e "${snippet}"`, options)
   return ret != null ? ret.toString().trim() : 'null'
 }
 
@@ -246,7 +246,7 @@ let failed = false
       failed = true
     }
     snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge'; console.log(!!createI18n);`
-    ret = eval(snippetEsm, { testDir })
+    ret = eval(snippetEsm, { esm: true, testDir })
     if (ret !== `true`) {
       console.log(`createI18n (esm): ${result} !== true`)
       failed = true
