@@ -235,7 +235,7 @@ let failed = false
       }
 
       // createI18n
-      snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge'); console.log(!!creteaI18n);`
+      snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge'); console.log(!!createI18n);`
       result = eval(snippetCjs, { testDir })
       if (result !== `true`) {
         console.log(`createI18n (cjs): ${result} !== true`)
