@@ -131,7 +131,8 @@ function eval(snippet, { inherit = false, testDir }) {
   if (inherit) {
     options.stdio = 'inherit'
   }
-  return execSync(`node -e "${snippet}"`, options).toString().trim()
+  const ret = execSync(`node -e "${snippet}"`, options)
+  return ret != null ? ret.toString().trim() : 'null'
 }
 
 const [targetDir, testDir] = getRootAndDir(pkg, type)
