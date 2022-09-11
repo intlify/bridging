@@ -92,6 +92,9 @@ nodeLinker: node-modules`,
     execSync(`yarn set version ${yarnVersion}`, { cwd: dir.test, stdio: 'inherit' })
     execSync(`yarn install`, { cwd: dir.test, stdio: 'inherit' })
     execSync(`find .`, { cwd: dir.test, stdio: 'inherit' })
+  } else if (agent === 'pnpm') {
+    // for `postinstall` script
+    fs.writeFileSync(join(dir.test, '.npmrc'), `side-effects-cache=false`, 'utf-8')
   }
 
   installDeps(params)
@@ -99,6 +102,7 @@ nodeLinker: node-modules`,
 
 function getModule(testDir, pkg, index) {
   const mod = fs.readFileSync(resolve(testDir, `node_modules/@intlify/${pkg}/lib/${index}`), 'utf-8')
+  // TODO: remove
   console.log('mod', mod)
   return mod
 }
@@ -146,6 +150,8 @@ prepareTestPackage(params)
 
 const indexFile = isCjs ? 'index.cjs' : 'index.mjs'
 const mod = getModule(testDir, pkg, indexFile)
+// TODO: remove
+execSync(`node -e "console.log(require('@intlify/${pkg}'))"`, { cwd: testDir, stdio: 'inherit' })
 
 let failed = false
 
