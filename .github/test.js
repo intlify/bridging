@@ -18,7 +18,7 @@ function getPkgVersion(target) {
 
 function getRootAndDir(pkg, type) {
   const target = resolve(__dirname, `../packages/${pkg}`)
-  const test = resolve(target, `../../${pkg}-test-${type}`)
+  const test = resolve(target, `../../../${pkg}-test-${type}`)
   console.log(`target: ${target}`)
   console.log(`test: ${test}`)
   return [target, test]
