@@ -189,7 +189,7 @@ let failed = false
 
     if (is8 !== `${isVue2}`) {
       console.log(`isVueI18n8: ${is8} !== ${isVue2}`)
-      execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge'))"`, { cwd: testDir })
+      execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge'))"`, { cwd: testDir, stdio: 'inherit' })
       failed = true
     }
   } else {
@@ -201,7 +201,7 @@ let failed = false
 
     if (is3 !== `${isVue2}`) {
       console.log(`isVueRouter3: ${is3} !== ${isVue2}`)
-      execSync(`node -e "console.log(require('@intlify/vue-router-bridge'))"`, { cwd: testDir })
+      execSync(`node -e "console.log(require('@intlify/vue-router-bridge'))"`, { cwd: testDir, stdio: 'inherit' })
       failed = true
     }
   }
