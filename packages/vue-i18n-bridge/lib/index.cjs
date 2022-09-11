@@ -1,3 +1,7 @@
+Object.defineProperty(exports, '__esModule', {
+  value: true
+})
+
 var VueI18n = require('vue-i18n')
 
 Object.keys(VueI18n).forEach(function (key) {
