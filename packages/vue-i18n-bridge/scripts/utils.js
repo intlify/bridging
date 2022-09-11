@@ -51,7 +51,7 @@ function checkBridge() {
 function checkVueI18n(pkg) {
   const i18n = loadModule(pkg)
   if (!i18n) {
-    warn('Vue I18n plugin is not found. Please run "npm install vue-i18n" to install.')
+    warn(`Vue I18n plugin is not found. Please run "npm install ${pkg}" to install.`)
     return false
   }
   return true
