@@ -126,6 +126,14 @@ function getPackageDeps(pkg, isVue2, isVue27) {
   }
 }
 
+function eval(snippet, { inherit = false, testDir }) {
+  const options = { cwd: testDir }
+  if (inherit) {
+    options.stdio = 'inherit'
+  }
+  return execSync(`node -e "${snippet}"`, options).toString().trim()
+}
+
 const [targetDir, testDir] = getRootAndDir(pkg, type)
 const isVue2 = vueVersion.startsWith('2')
 const isVue27 = vueVersion.startsWith('2.7')
@@ -151,11 +159,12 @@ prepareTestPackage(params)
 const indexFile = isCjs ? 'index.cjs' : 'index.mjs'
 const mod = getModule(testDir, pkg, indexFile)
 // TODO: remove
-execSync(`node -e "console.log(require('@intlify/${pkg}'))"`, { cwd: testDir, stdio: 'inherit' })
+eval(`console.log(require('@intlify/${pkg}'))`, { testDir, inherit: true })
 
 let failed = false
 
-;(function codeCheck() {
+// check flag
+;(function checkFlags() {
   if (pkg === 'vue-i18n-bridge') {
     if (isCjs && !mod.includes(`exports.isVueI18n8 = ${isVue2}`)) {
       console.log('CJS:', mod)
@@ -179,37 +188,71 @@ let failed = false
     }
   }
 })()
-;(function versionCheck() {
+
+// check version
+;(function checkVersion() {
   if (pkg === 'vue-i18n-bridge') {
-    const outputVersion = execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge').version)"`, {
-      cwd: testDir
+    const outputVersion = eval(`console.log(require('@intlify/vue-i18n-bridge').version)`, {
+      testDir
     })
-      .toString()
-      .trim()
     console.log('version: ' + outputVersion)
 
     // isVueI18n8
-    const is8 = execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge').isVueI18n8)"`, { cwd: testDir })
-      .toString()
-      .trim()
+    const is8 = eval(`console.log(require('@intlify/vue-i18n-bridge').isVueI18n8)`, { testDir })
 
     if (is8 !== `${isVue2}`) {
       console.log(`isVueI18n8: ${is8} !== ${isVue2}`)
-      execSync(`node -e "console.log(require('@intlify/vue-i18n-bridge'))"`, { cwd: testDir, stdio: 'inherit' })
+      eval(`console.log(require('@intlify/vue-i18n-bridge'))`, { testDir, inherit: true })
       failed = true
     }
   } else {
     // for vue-router-bridge
     // isVueRouter3
-    const is3 = execSync(`node -e "console.log(require('@intlify/vue-router-bridge').isVueRouter3)"`, { cwd: testDir })
-      .toString()
-      .trim()
+    const is3 = eval(`console.log(require('@intlify/vue-router-bridge').isVueRouter3)`, { testDir })
 
     if (is3 !== `${isVue2}`) {
       console.log(`isVueRouter3: ${is3} !== ${isVue2}`)
-      execSync(`node -e "console.log(require('@intlify/vue-router-bridge'))"`, { cwd: testDir, stdio: 'inherit' })
+      eval(`console.log(require('@intlify/vue-router-bridge'))`, { testDir, inherit: true })
       failed = true
     }
+  }
+})()
+
+// check exporting
+;(function checkExporting() {
+  let snippetCjs = ''
+  let snippetEsm = ''
+  if (pkg === 'vue-i18n-bridge') {
+    // default export
+    snippetCjs = `const VueI18n = require('@intlify/vue-i18n-bridge'); console.log(!!VueI18n);`
+    let ret = eval(snippetCjs, { testDir })
+    if (ret !== `true`) {
+      console.log(`default export (cjs): ${result} !== true`)
+      failed = true
+    }
+    snippetEsm = `import VueI18n from '@intlify/vue-i18n-bridge'; console.log(!!VueI18n);`
+    ret = eval(snippetEsm, { testDir })
+    if (ret !== `true`) {
+      console.log(`default export (esm): ${result} !== true`)
+      failed = true
+    }
+
+    // createI18n
+    snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge'); console.log(!!creteaI18n);`
+    ret = eval(snippetCjs, { testDir })
+    if (ret !== `true`) {
+      console.log(`createI18n (cjs): ${result} !== true`)
+      failed = true
+    }
+    snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge'; console.log(!!createI18n);`
+    ret = eval(snippetEsm, { testDir })
+    if (ret !== `true`) {
+      console.log(`createI18n (esm): ${result} !== true`)
+      failed = true
+    }
+  } else {
+    // for vue-router-bridge
+    // TODO:
   }
 })()
 
