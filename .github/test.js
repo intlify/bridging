@@ -223,33 +223,42 @@ let failed = false
 ;(function checkExporting() {
   let snippetCjs = ''
   let snippetEsm = ''
+  let result = ''
   if (pkg === 'vue-i18n-bridge') {
-    // default export
-    snippetCjs = `const VueI18n = require('@intlify/vue-i18n-bridge'); console.log(!!VueI18n);`
-    let ret = eval(snippetCjs, { testDir })
-    if (ret !== `true`) {
-      console.log(`default export (cjs): ${result} !== true`)
-      failed = true
-    }
-    snippetEsm = `import VueI18n from '@intlify/vue-i18n-bridge'; console.log(!!VueI18n);`
-    ret = eval(snippetEsm, { testDir })
-    if (ret !== `true`) {
-      console.log(`default export (esm): ${result} !== true`)
-      failed = true
-    }
+    if (type === 'commonjs') {
+      // default export
+      snippetCjs = `const VueI18n = require('@intlify/vue-i18n-bridge'); console.log(!!VueI18n);`
+      result = eval(snippetCjs, { testDir })
+      if (result !== `true`) {
+        console.log(`default export (cjs): ${result} !== true`)
+        failed = true
+      }
 
-    // createI18n
-    snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge'); console.log(!!creteaI18n);`
-    ret = eval(snippetCjs, { testDir })
-    if (ret !== `true`) {
-      console.log(`createI18n (cjs): ${result} !== true`)
-      failed = true
-    }
-    snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge'; console.log(!!createI18n);`
-    ret = eval(snippetEsm, { esm: true, testDir })
-    if (ret !== `true`) {
-      console.log(`createI18n (esm): ${result} !== true`)
-      failed = true
+      // createI18n
+      snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge'); console.log(!!creteaI18n);`
+      result = eval(snippetCjs, { testDir })
+      if (result !== `true`) {
+        console.log(`createI18n (cjs): ${result} !== true`)
+        failed = true
+      }
+    } else {
+      // for esm
+
+      // default export
+      snippetEsm = `import VueI18n from '@intlify/vue-i18n-bridge'; console.log(!!VueI18n);`
+      result = eval(snippetEsm, { esm: true, testDir })
+      if (result !== `true`) {
+        console.log(`default export (esm): ${result} !== true`)
+        failed = true
+      }
+
+      // createI18n
+      snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge'; console.log(!!createI18n);`
+      result = eval(snippetEsm, { esm: true, testDir })
+      if (result !== `true`) {
+        console.log(`createI18n (esm): ${result} !== true`)
+        failed = true
+      }
     }
   } else {
     // for vue-router-bridge
