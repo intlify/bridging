@@ -227,7 +227,9 @@ let failed = false
   if (pkg === 'vue-i18n-bridge') {
     if (type === 'commonjs') {
       // default export
-      snippetCjs = `const VueI18n = require('@intlify/vue-i18n-bridge');
+      snippetCjs = `const Vue = require('vue');
+const VueI18n = require('@intlify/vue-i18n-bridge');
+Vue.use(VueI18n);
 const i18n = new VueI18n({ locale: 'ja' });
 console.log(i18n.locale);
 `
@@ -251,7 +253,9 @@ console.log(i18n.locale);
       // for esm
 
       // default export
-      snippetEsm = `import VueI18n from '@intlify/vue-i18n-bridge';
+      snippetEsm = `import Vue from 'vue';
+import VueI18n from '@intlify/vue-i18n-bridge';
+Vue.use(VueI18n);
 const i18n = new VueI18n({ locale: 'ja' });
 console.log(!!VueI18n);
 `
