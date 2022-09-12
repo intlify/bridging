@@ -227,36 +227,48 @@ let failed = false
   if (pkg === 'vue-i18n-bridge') {
     if (type === 'commonjs') {
       // default export
-      snippetCjs = `const VueI18n = require('@intlify/vue-i18n-bridge'); console.log(!!VueI18n);`
+      snippetCjs = `const VueI18n = require('@intlify/vue-i18n-bridge');
+const i18n = new VueI18n({ locale: 'ja' });
+console.log(i18n.locale);
+`
       result = eval(snippetCjs, { testDir })
-      if (result !== `true`) {
-        console.log(`default export (cjs): ${result} !== true`)
+      if (result !== `ja`) {
+        console.log(`default export (cjs): ${result} !== ja`)
         failed = true
       }
 
       // createI18n
-      snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge'); console.log(!!createI18n);`
+      snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge');
+const i18n = createI18n({ locale: 'ja' });
+console.log(i18n.locale);
+`
       result = eval(snippetCjs, { testDir })
-      if (result !== `true`) {
-        console.log(`createI18n (cjs): ${result} !== true`)
+      if (result !== `ja`) {
+        console.log(`createI18n (cjs): ${result} !== ja`)
         failed = true
       }
     } else {
       // for esm
 
       // default export
-      snippetEsm = `import VueI18n from '@intlify/vue-i18n-bridge'; console.log(!!VueI18n);`
+      snippetEsm = `import VueI18n from '@intlify/vue-i18n-bridge';
+const i18n = new VueI18n({ locale: 'ja' });
+console.log(!!VueI18n);
+`
       result = eval(snippetEsm, { esm: true, testDir })
-      if (result !== `true`) {
-        console.log(`default export (esm): ${result} !== true`)
+      if (result !== `ja`) {
+        console.log(`default export (esm): ${result} !== ja`)
         failed = true
       }
 
       // createI18n
-      snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge'; console.log(!!createI18n);`
+      snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge';
+const i18n = createI18n({ locale: 'ja' });
+console.log(i18n.locale);
+`
       result = eval(snippetEsm, { esm: true, testDir })
-      if (result !== `true`) {
-        console.log(`createI18n (esm): ${result} !== true`)
+      if (result !== `ja`) {
+        console.log(`createI18n (esm): ${result} !== ja`)
         failed = true
       }
     }
