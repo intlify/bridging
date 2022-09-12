@@ -56,6 +56,7 @@
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
   },
+  "funding": "https://github.com/sponsors/kazupon",
   "homepage": "https://github.com/intlify/bridging/tree/main/packages/vue-router-bridge#readme",
   "repository": {
     "type": "git",
