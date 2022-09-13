@@ -167,7 +167,7 @@ let failed = false
 // check flag
 ;(function checkFlags() {
   if (pkg === 'vue-i18n-bridge') {
-    if (isCjs && !mod.includes(`exports.isVueI18n8 = ${isVue2}`)) {
+    if (isCjs && !mod.includes(`${vueVersion === '2' ? 'VueI18n' : 'VueI18nLegacy'}.isVueI18n8 = ${isVue2}`)) {
       console.log('CJS:', mod)
       failed = true
     }
