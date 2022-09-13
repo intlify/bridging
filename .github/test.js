@@ -246,7 +246,7 @@ const VueI18n = require('@intlify/vue-i18n-bridge')
 const { createI18n } = require('@intlify/vue-i18n-bridge');
 Vue.use(VueI18n);
 const i18n = createI18n({ locale: 'fr' }, VueI18n);
-console.log(i18n.locale);
+console.log(i18n.global.locale);
 `
         result = eval(snippetCjs, { testDir })
         if (result !== `fr`) {
@@ -269,7 +269,7 @@ console.log(i18n.locale);
         // createI18n
         snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge');
 const i18n = createI18n({ legacy: false, locale: 'fr' });
-console.log(i18n.locale);
+console.log(i18n.global.locale.value);
 `
         result = eval(snippetCjs, { testDir })
         if (result !== `fr`) {
