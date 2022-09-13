@@ -194,8 +194,13 @@ declare interface VueI18n {
 declare const isVueI18n8: boolean
 declare const isVueI18n9: boolean
 
+class VueI18nLegacy {
+  static install() {}
+  static version = ''
+}
+
 export * from 'vue-i18n'
-export { VueI18n, isVueI18n8, isVueI18n9 }
-export default VueI18n
+export { isVueI18n8, isVueI18n9 }
+export default VueI18nLegacy
 
 /* eslint-enable @typescript-eslint/no-explicit-any */

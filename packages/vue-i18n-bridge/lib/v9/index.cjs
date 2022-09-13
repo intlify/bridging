@@ -14,6 +14,12 @@ class VueI18nLegacy {
   static version = ''
 }
 
+Object.keys(VueI18n).forEach(function (key) {
+  VueI18nLegacy[key] = VueI18n[key]
+})
+
+VueI18nLegacy.isVueI18n8 = false
+VueI18nLegacy.isVueI18n9 = true
+
 exports.default = VueI18nLegacy
-exports.isVueI18n8 = false
-exports.isVueI18n9 = true
+module.exports = VueI18nLegacy
