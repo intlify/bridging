@@ -160,14 +160,14 @@ prepareTestPackage(params)
 const indexFile = isCjs ? 'index.cjs' : 'index.mjs'
 const mod = getModule(testDir, pkg, indexFile)
 // TODO: remove
-eval(`console.log(require('@intlify/${pkg}'))`, { testDir, inherit: true })
+// eval(`console.log(require('@intlify/${pkg}'))`, { testDir, inherit: true })
 
 let failed = false
 
 // check flag
 ;(function checkFlags() {
   if (pkg === 'vue-i18n-bridge') {
-    if (isCjs && !mod.includes(`exports.isVueI18n8 = ${isVue2}`)) {
+    if (isCjs && !mod.includes(`${vueVersion.startsWith('2') ? 'VueI18n' : 'VueI18nLegacy'}.isVueI18n8 = ${isVue2}`)) {
       console.log('CJS:', mod)
       failed = true
     }
@@ -226,54 +226,109 @@ let failed = false
   let result = ''
   if (pkg === 'vue-i18n-bridge') {
     if (type === 'commonjs') {
-      // default export
-      snippetCjs = `const Vue = require('vue');
+      if (vueVersion !== '3') {
+        // default export
+        snippetCjs = `const Vue = require('vue');
 const VueI18n = require('@intlify/vue-i18n-bridge');
 Vue.use(VueI18n);
 const i18n = new VueI18n({ locale: 'ja' });
 console.log(i18n.locale);
 `
-      result = eval(snippetCjs, { testDir })
-      if (result !== `ja`) {
-        console.log(`default export (cjs): ${result} !== ja`)
-        failed = true
-      }
+        result = eval(snippetCjs, { testDir })
+        if (result !== `ja`) {
+          console.log(`default export (cjs): ${result} !== ja`)
+          failed = true
+        }
 
-      // createI18n
-      snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge');
-const i18n = createI18n({ locale: 'ja' });
+        // createI18n
+        snippetCjs = `const Vue = require('vue');
+const VueI18n = require('@intlify/vue-i18n-bridge')
+const { createI18n } = require('@intlify/vue-i18n-bridge');
+Vue.use(VueI18n);
+const i18n = createI18n({ locale: 'fr' }, VueI18n);
+console.log(i18n.global.locale.value);
+`
+        result = eval(snippetCjs, { testDir })
+        if (result !== `fr`) {
+          console.log(`createI18n (cjs): ${result} !== fr`)
+          failed = true
+        }
+      } else {
+        // for vue 3
+        // default export
+        snippetCjs = `const VueI18n = require('@intlify/vue-i18n-bridge');
+const i18n = new VueI18n({ locale: 'ja' });
 console.log(i18n.locale);
 `
-      result = eval(snippetCjs, { testDir })
-      if (result !== `ja`) {
-        console.log(`createI18n (cjs): ${result} !== ja`)
-        failed = true
+        result = eval(snippetCjs, { testDir })
+        if (result !== `undefined`) {
+          console.log(`default export (cjs): ${result} !== undefined`)
+          failed = true
+        }
+
+        // createI18n
+        snippetCjs = `const { createI18n } = require('@intlify/vue-i18n-bridge');
+const i18n = createI18n({ legacy: false, locale: 'fr' });
+console.log(i18n.global.locale.value);
+`
+        result = eval(snippetCjs, { testDir })
+        if (result !== `fr`) {
+          console.log(`createI18n (cjs): ${result} !== fr`)
+          failed = true
+        }
       }
     } else {
       // for esm
-
-      // default export
-      snippetEsm = `import Vue from 'vue';
+      if (vueVersion !== '3') {
+        // default export
+        snippetEsm = `import Vue from 'vue';
 import VueI18n from '@intlify/vue-i18n-bridge';
 Vue.use(VueI18n);
 const i18n = new VueI18n({ locale: 'ja' });
-console.log(!!VueI18n);
-`
-      result = eval(snippetEsm, { esm: true, testDir })
-      if (result !== `ja`) {
-        console.log(`default export (esm): ${result} !== ja`)
-        failed = true
-      }
-
-      // createI18n
-      snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge';
-const i18n = createI18n({ locale: 'ja' });
 console.log(i18n.locale);
 `
-      result = eval(snippetEsm, { esm: true, testDir })
-      if (result !== `ja`) {
-        console.log(`createI18n (esm): ${result} !== ja`)
-        failed = true
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `ja`) {
+          console.log(`default export (esm): ${result} !== ja`)
+          failed = true
+        }
+
+        // createI18n
+        snippetEsm = `import Vue from 'vue';
+import VueI18n from '@intlify/vue-i18n-bridge';
+import { createI18n } from '@intlify/vue-i18n-bridge';
+Vue.use(VueI18n);
+const i18n = createI18n({ locale: 'ja' }, VueI18n);
+console.log(i18n.global.locale.value);
+`
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `ja`) {
+          console.log(`createI18n (esm): ${result} !== ja`)
+          failed = true
+        }
+      } else {
+        // for vue3
+        // default export
+        snippetEsm = `import VueI18n from '@intlify/vue-i18n-bridge';
+const i18n = new VueI18n({ locale: 'ja' });
+console.log(!!i18n);
+`
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `true`) {
+          console.log(`default export (esm): ${result} !== true`)
+          failed = true
+        }
+
+        // createI18n
+        snippetEsm = `import { createI18n } from '@intlify/vue-i18n-bridge';
+const i18n = createI18n({ legacy: false, locale: 'ja' });
+console.log(i18n.global.locale.value);
+`
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `ja`) {
+          console.log(`createI18n (esm): ${result} !== ja`)
+          failed = true
+        }
       }
     }
   } else {
