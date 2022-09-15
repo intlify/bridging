@@ -178,12 +178,15 @@ let failed = false
     }
   } else {
     // for vue-router-bridge
-    if (isCjs && !mod.includes(`exports.isVueRouter3 = ${isVue2}`)) {
+    if (
+      isCjs &&
+      !mod.includes(`${vueVersion.startsWith('2') ? 'VueRouter' : 'VueRouterLegacy'}.isVueRouter3 = ${isVue2}`)
+    ) {
       console.log('CJS:', mod)
       failed = true
     }
 
-    if (!isCjs && !mod.includes(`export default VueRouter`)) {
+    if (!isCjs && !/isVueRouter3/gm.test(mod) && !/isVueRouter4/gm.test(mod)) {
       console.log('ESM:', mod)
       failed = true
     }
