@@ -4,6 +4,8 @@ const VueRouter = loadModule('vue-router/package.json')
 
 if (!VueRouter || typeof VueRouter.version !== 'string') {
   warn('VueRouter is not found. Please run "npm install vue-router" to install.')
+} else if (VueRouter.version.startsWith('3.6')) {
+  switchVersion(3.6)
 } else if (VueRouter.version.startsWith('3.')) {
   switchVersion(3)
 } else if (VueRouter.version.startsWith('4.')) {

@@ -3,7 +3,10 @@ const { switchVersion, warn, log } = require('./utils') // eslint-disable-line @
 const version = process.argv[2]
 const vueRouterEntry = process.argv[3] || 'vue-router'
 
-if (version == '3') {
+if (version == '3.6') {
+  switchVersion(3.6, vueRouterEntry)
+  log(`Switched for Vue Router 3.6 (entry: "${vueRouterEntry}")`)
+} else if (version == '3') {
   switchVersion(3, vueRouterEntry)
   log(`Switched for Vue Router 3 (entry: "${vueRouterEntry}")`)
 } else if (version == '4') {
