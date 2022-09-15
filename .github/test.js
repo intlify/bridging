@@ -178,12 +178,15 @@ let failed = false
     }
   } else {
     // for vue-router-bridge
-    if (isCjs && !mod.includes(`exports.isVueRouter3 = ${isVue2}`)) {
+    if (
+      isCjs &&
+      !mod.includes(`${vueVersion.startsWith('2') ? 'VueRouter' : 'VueRouterLegacy'}.isVueRouter3 = ${isVue2}`)
+    ) {
       console.log('CJS:', mod)
       failed = true
     }
 
-    if (!isCjs && !mod.includes(`export default VueRouter`)) {
+    if (!isCjs && !/isVueRouter3/gm.test(mod) && !/isVueRouter4/gm.test(mod)) {
       console.log('ESM:', mod)
       failed = true
     }
@@ -333,7 +336,125 @@ console.log(i18n.global.locale.value);
     }
   } else {
     // for vue-router-bridge
-    // TODO:
+    if (type === 'commonjs') {
+      if (vueVersion !== '3') {
+        // default export
+        snippetCjs = `const Vue = require('vue');
+const VueRouter = require('@intlify/vue-router-bridge');
+Vue.use(VueRouter);
+const router = new VueRouter();
+console.log(router.mode);
+`
+        result = eval(snippetCjs, { testDir })
+        if (result !== `abstract`) {
+          console.log(`default export (cjs): ${result} !== abstract`)
+          failed = true
+        }
+
+        // createRouter
+        snippetCjs = `const Vue = require('vue');
+const VueRouter = require('@intlify/vue-router-bridge');
+Vue.use(VueRouter);
+const { createRouter, createMemoryHistory } = require('@intlify/vue-router-bridge');
+const router = createRouter({
+  routes: [],
+  history: createMemoryHistory()
+})
+console.log(!!router);
+`
+        result = eval(snippetCjs, { testDir })
+        if (result !== `true`) {
+          console.log(`createRouter (cjs): ${result} !== true`)
+          failed = true
+        }
+      } else {
+        // for vue 3
+        // default export
+        snippetCjs = `const VueRouter = require('@intlify/vue-router-bridge');
+const router = new VueRouter();
+console.log(!!router);
+`
+        result = eval(snippetCjs, { testDir })
+        if (result !== `true`) {
+          console.log(`default export (cjs): ${result} !== true`)
+          failed = true
+        }
+
+        // createRouter
+        snippetCjs = `
+const { createRouter, createMemoryHistory } = require('@intlify/vue-router-bridge');
+const router = createRouter({
+  routes: [],
+  history: createMemoryHistory()
+})
+console.log(!!router.currentRoute);
+`
+        result = eval(snippetCjs, { testDir })
+        if (result !== `true`) {
+          console.log(`createRouter (cjs): ${result} !== true`)
+          failed = true
+        }
+      }
+    } else {
+      // for esm
+      if (vueVersion !== '3') {
+        // default export
+        snippetEsm = `import Vue from 'vue';
+import VueRouter from '@intlify/vue-router-bridge'
+Vue.use(VueRouter);
+const router = new VueRouter()
+console.log(router.mode);
+`
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `abstract`) {
+          console.log(`default export (esm): ${result} !== abstract`)
+          failed = true
+        }
+
+        // createRouter
+        snippetEsm = `import Vue from 'vue';
+import VueRouter from '@intlify/vue-router-bridge'
+import { createRouter, createMemoryHistory } from '@intlify/vue-router-bridge'
+Vue.use(VueRouter);
+const router = createRouter({
+  routes: [],
+  history: createMemoryHistory()
+})
+console.log(!!router);
+`
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `true`) {
+          console.log(`createRouter (esm): ${result} !== true`)
+          failed = true
+        }
+      } else {
+        // for vue3
+        // default export
+        snippetEsm = `import VueRouter from '@intlify/vue-router-bridge'
+const router = new VueRouter();
+console.log(!!router);
+`
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `true`) {
+          console.log(`default export (esm): ${result} !== true`)
+          failed = true
+        }
+
+        // createRouter
+        snippetEsm = `import { createRouter, createMemoryHistory } from '@intlify/vue-router-bridge'
+const router = createRouter({
+  routes: [],
+  history: createMemoryHistory()
+})
+console.log(!!router.currentRoute);
+`
+        result = eval(snippetEsm, { esm: true, testDir })
+        if (result !== `true`) {
+          console.log(`createRouter (esm): ${result} !== true`)
+          failed = true
+        }
+      }
+    }
   }
 })()
 

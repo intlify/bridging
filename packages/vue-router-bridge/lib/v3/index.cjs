@@ -1,5 +1,9 @@
-var VueRouter = require('vue-router') // eslint-disable-line @typescript-eslint/no-var-requires
-var VueDemi = require('vue-demi') // eslint-disable-line @typescript-eslint/no-var-requires
+Object.defineProperty(exports, '__esModule', {
+  value: true
+})
+
+var VueRouter = require('vue-router')
+var VueDemi = require('vue-demi')
 
 const useRouter = () => {
   const instance = VueDemi.getCurrentInstance()
@@ -19,19 +23,20 @@ const useRoute = () => {
   return VueDemi.reactive(vm.$route)
 }
 
-exports.useRouter = useRouter
-exports.useRoute = useRoute
-exports.isVueRouter3 = true
-exports.isVueRouter4 = false
+VueRouter.useRouter = useRouter
+VueRouter.useRoute = useRoute
+VueRouter.isVueRouter3 = true
+VueRouter.isVueRouter4 = false
 
 /**
  * shim vue-router@4 typings
  */
 const STUB = () => ({})
-exports.createRouter = STUB
-exports.createMemoryHistory = STUB
-exports.createRouterMatcher = STUB
-exports.createWebHashHistory = STUB
-exports.createWebHistory = STUB
+VueRouter.createRouter = STUB
+VueRouter.createMemoryHistory = STUB
+VueRouter.createRouterMatcher = STUB
+VueRouter.createWebHashHistory = STUB
+VueRouter.createWebHistory = STUB
 
+exports.default = VueRouter
 module.exports = VueRouter
