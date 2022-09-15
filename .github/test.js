@@ -121,7 +121,7 @@ function getPackageDeps(pkg, isVue2, isVue27) {
     return isVue27
       ? 'vue@2.7 vue-router@3.6'
       : isVue2
-        ? `vue@2.6 @vue/composition-api vue-router@3`
+        ? `vue@2.6 @vue/composition-api vue-router@3.5`
         : 'vue@3 vue-router@4'
   }
 }
