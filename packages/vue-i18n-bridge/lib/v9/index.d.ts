@@ -194,9 +194,9 @@ declare interface VueI18n {
 declare const isVueI18n8: boolean
 declare const isVueI18n9: boolean
 
-class VueI18nLegacy {
-  static install() {}
-  static version = ''
+declare class VueI18nLegacy {
+  static install()
+  static version
 }
 
 export * from 'vue-i18n'
