@@ -1,12 +1,21 @@
-var VueRouter = require('vue-router') // eslint-disable-line @typescript-eslint/no-var-requires
-
-Object.keys(VueRouter).forEach(function (key) {
-  exports[key] = VueRouter[key]
+Object.defineProperty(exports, '__esModule', {
+  value: true
 })
 
-// dummy vue-router 3 class
-class VueRouter3 {}
+var VueRouter = require('vue-router')
 
-exports.default = VueRouter3
-exports.isVueRouter3 = false
-exports.isVueRouter4 = true
+// stub vue-router 3 class
+class VueRouterLegacy {
+  static install() {}
+  static version = ''
+}
+
+Object.keys(VueRouter).forEach(function (key) {
+  VueRouterLegacy[key] = VueRouter[key]
+})
+
+VueRouterLegacy.isVueRouter3 = false
+VueRouterLegacy.isVueRouter4 = true
+
+exports.default = VueRouterLegacy
+module.exports = VueRouterLegacy

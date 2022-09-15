@@ -144,9 +144,9 @@ declare const isVueRouter3: boolean
 declare const isVueRouter4: boolean
 
 /**
- * Define dummy vue-router 3 class
+ * Define stub vue-router 3 class
  */
-declare class VueRouter3 {
+declare class VueRouterLegacy {
   constructor(options?: RouterOptions)
 }
 
@@ -169,6 +169,6 @@ export {
 }
 
 // Export dummy VueRouter class
-export default VueRouter3
+export default VueRouterLegacy
 
 /* eslint-enable @typescript-eslint/no-explicit-any */
