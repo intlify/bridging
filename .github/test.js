@@ -420,7 +420,7 @@ const router = createRouter({
   routes: [],
   history: createMemoryHistory()
 })
-console.log(!!router.currentRoute);
+console.log(!!router);
 `
         result = eval(snippetEsm, { esm: true, testDir })
         if (result !== `true`) {
