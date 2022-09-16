@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 5050",
+    "test": "vitest run specs",
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
@@ -17,7 +18,10 @@
     "@types/node": "16.11.17",
     "@vitejs/plugin-vue": "2.0.1",
     "typescript": "4.5.4",
+    "playwright": "1.25.2",
     "vite": "2.9.12",
+    "vite-test-utils": "0.5.2",
+    "vitest": "0.23.2",
     "vue-tsc": "0.30.1"
   }
 }

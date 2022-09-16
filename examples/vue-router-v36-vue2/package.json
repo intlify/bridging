@@ -5,6 +5,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 5050",
+    "test": "vitest run specs",
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
@@ -19,8 +20,11 @@
     "@vue/runtime-dom": "3.2.22",
     "typescript": "4.5.4",
     "unplugin-vue2-script-setup": "0.7.1",
+    "playwright": "1.25.2",
     "vite": "2.9.12",
-    "vite-plugin-vue2": "1.9.0",
+    "vite-test-utils": "0.5.2",
+    "vitest": "0.23.2",
+    "vite-plugin-vue2": "2.0.2",
     "vue-template-compiler": "2.7.10",
     "vue-tsc": "0.30.1"
   }

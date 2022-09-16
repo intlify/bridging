@@ -10,20 +10,6 @@
   "bugs": {
     "url": "https://github.com/inlitify/bridging/issues"
   },
-  "pnpm": {
-    "packageExtensions": {
-      "vue-router@4": {
-        "dependencies": {
-          "vue": "next"
-        }
-      }
-    },
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "vue"
-      ]
-    }
-  },
   "devDependencies": {
     "@nexhome/yorkie": "^2.0.8",
     "@secretlint/secretlint-rule-preset-recommend": "^4.1.3",
@@ -97,6 +83,12 @@
     "play:router3": "cd examples/vue-router-v3-vue2 && npm run dev",
     "play:router36": "cd examples/vue-router-v36-vue2 && npm run dev",
     "play:router4": "cd examples/vue-router-v4-vue3 && npm run dev",
+    "test": "run-p \"test:*\"",
+    "test:i18n8": "cd examples/vue-i18n-v8-vue2 && npm test",
+    "test:i18n9": "cd examples/vue-i18n-v9-vue3 && npm test",
+    "test:router3": "cd examples/vue-router-v3-vue2 && npm test",
+    "test:router36": "cd examples/vue-router-v36-vue2 && npm test",
+    "test:router4": "cd examples/vue-router-v4-vue3 && npm test",
     "release": "bumpp package.json packages/**/package.json --commit \"release: v\" --push --tag",
     "preinstall": "node ./scripts/preinstall.mjs"
   }
