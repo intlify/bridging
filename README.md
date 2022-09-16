@@ -13,7 +13,7 @@ Utilities that provide compatibility for Vue 2 & Vue 3
 
 ## 🏃 Project using bridging packages
 
-- `@intlify/routing` (it will be releasing soon)
+- [`@intlify/routing`](https://github.com/intlify/routing)
 
 ## 🙌 Contributing guidelines
 
