@@ -1,4 +1,5 @@
 dist
 dist_ssr
 docsgen.config.js
+examples
 .nyc_output
