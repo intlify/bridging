@@ -84,7 +84,7 @@
     "play:router3": "cd examples/vue-router-v3-vue2 && npm run dev",
     "play:router36": "cd examples/vue-router-v36-vue2 && npm run dev",
     "play:router4": "cd examples/vue-router-v4-vue3 && npm run dev",
-    "test": "./scripts/e2e.sh",
+    "test": "run-p \"test:*\"",
     "test:i18n8": "cd examples/vue-i18n-v8-vue2 && npm test",
     "test:i18n9": "cd examples/vue-i18n-v9-vue3 && npm test",
     "test:router3": "cd examples/vue-router-v3-vue2 && npm test",
