@@ -5,6 +5,7 @@ Vue Router bridging for Vue 2 & Vue 3
 > This library is inspired by [vue-demi](https://github.com/vueuse/vue-demi)
 
 ## 🌟 Features
+
 - Vue Router composable APIs available on Vue 2 & Vue 3
   - `useRouter`
   - `useRoute`
@@ -12,6 +13,7 @@ Vue Router bridging for Vue 2 & Vue 3
   - About details [here](https://github.com/intlify/bridging/blob/63b1fb5dab4be772f4f564f023e9028979d37196/packages/vue-router-bridge/lib/v3/index.d.ts#L7-L75)
 - Auto detect Vue Router version on bundling
 - Manual switch versions
+
 ## 💿 Installation
 
 ```sh
@@ -62,7 +64,7 @@ When using with [Vite](https://vitejs.dev), you will need to opt-out the pre-bun
 export default defineConfig({
   optimizeDeps: {
     exclude: ['@intlify/vue-router-bridge']
- }
+  }
 })
 ```
 
@@ -85,6 +87,7 @@ if (isVueRouter3) {
 ## 📺 CLI
 
 To explicitly switch the redirecting version, you can use these commands in your project's root:
+
 ### 🤏 Manually Switch Versions
 
 ```sh
@@ -102,6 +105,7 @@ npx vue-router-switch 3 vue-router3
 # or
 npx vue-router-switch 4 vue-router4
 ```
+
 ### 🩹 Auto Fix
 
 If the postinstall hook doesn't get triggered or you have updated the Vue Router version, try to run the following command to resolve the redirecting:
@@ -109,6 +113,7 @@ If the postinstall hook doesn't get triggered or you have updated the Vue Router
 ```sh
 npx vue-router-fix
 ```
+
 ### ✳️ Isomorphic Testings
 
 You can support testing for both versions by adding npm alias in your dev dependencies. For example:
@@ -141,7 +146,14 @@ or
 }
 ```
 
+## 🍭 Examples
+
+- [Vue 2 + Vue Router v3.6 before](../../examples/vue-router-v3-vue2)
+- [Vue 2 + Vue Router v3.6 or v3.x later](../../examples/vue-router-v36-vue2)
+- [Vue 3 + Vue Router v4](../../examples/vue-router-v4-vue3)
+
 ## 💖 Thanks
+
 This package idea was inspired from [vue-demi](https://github.com/vueuse/vue-demi), [@antfu](https://github.com/antfu)'s great work!
 
 ## ©️ License

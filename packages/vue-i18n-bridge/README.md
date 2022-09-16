@@ -5,9 +5,11 @@ Vue I18n bridging for Vue 2 & Vue 3
 > This library is inspired by [vue-demi](https://github.com/vueuse/vue-demi)
 
 ## 🌟 Features
+
 - Vue I18n composable APIs available on Vue 2 & Vue 3 (e.g `createI18n`, `useI18n`)
 - Auto detect Vue I18n version on bundling
 - Manual switch versions
+
 ## 💿 Installation
 
 ```sh
@@ -60,7 +62,7 @@ When using with [Vite](https://vitejs.dev), you will need to opt-out the pre-bun
 export default defineConfig({
   optimizeDeps: {
     exclude: ['@intlify/vue-i18n-bridge']
- }
+  }
 })
 ```
 
@@ -83,6 +85,7 @@ if (isVueI18n8) {
 ## 📺 CLI
 
 To explicitly switch the redirecting version, you can use these commands in your project's root:
+
 ### 🤏 Manually Switch Versions
 
 ```sh
@@ -100,6 +103,7 @@ npx vue-i18n-switch 8 vue-i18n-8
 # or
 npx vue-i18n-switch 9 vue-i18n-9
 ```
+
 ### 🩹 Auto Fix
 
 If the postinstall hook doesn't get triggered or you have updated the Vue I18n version, try to run the following command to resolve the redirecting:
@@ -107,6 +111,7 @@ If the postinstall hook doesn't get triggered or you have updated the Vue I18n v
 ```sh
 npx vue-i18n-fix
 ```
+
 ### ✳️ Isomorphic Testings
 
 You can support testing for both versions by adding npm alias in your dev dependencies. For example:
@@ -140,7 +145,13 @@ or
 }
 ```
 
+## 🍭 Examples
+
+- [Vue 2 + Vue I18n v8](../../examples/vue-i18n-v8-vue2)
+- [Vue 3 + Vue I18n v9](../../examples/vue-i18n-v9-vue3)
+
 ## 💖 Thanks
+
 This package idea was inspired from [vue-demi](https://github.com/vueuse/vue-demi), [@antfu](https://github.com/antfu)'s great work!
 
 ## ©️ License
