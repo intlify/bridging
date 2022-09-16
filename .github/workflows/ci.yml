@@ -68,11 +68,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Setup examples
-        run: pnpm setup:examples
-
       - name: Run test
-        run: pnpm test
+        run: ./scripts/e2e.sh
 
   npm:
     strategy:
