@@ -9,16 +9,15 @@
     "vue-demi": "^0.13.5"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
     "vue-router": "^4.0.0-0 || ^3.0.0"
   },
   "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    },
     "vue-router": {
       "optional": true
     }
+  },
+  "optionalDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1"
   },
   "main": "lib/index.cjs",
   "module": "lib/index.mjs",

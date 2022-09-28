@@ -6,20 +6,19 @@
     "postinstall": "node ./scripts/postinstall.js"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
-    "vue-i18n": "^8.26.1 || ^9.2.0-beta.25 || ^9.3.0-beta.3",
-    "vue-i18n-bridge": "^9.2.0-beta.25 || ^9.3.0-beta.3"
+    "vue-i18n": "^8.26.1 || ^9.2.0-beta.25 || ^9.3.0-beta.5",
+    "vue-i18n-bridge": "^9.2.0-beta.25 || ^9.3.0-beta.5"
   },
   "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    },
     "vue-i18n": {
       "optional": true
     },
     "vue-i18n-bridge": {
       "optional": true
     }
+  },
+  "optionalDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1"
   },
   "main": "lib/index.cjs",
   "module": "lib/index.mjs",
