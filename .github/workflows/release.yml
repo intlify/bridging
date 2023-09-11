@@ -24,10 +24,10 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.9.3
+          version: 8.6.2
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       - name: Extract version tag
         if: startsWith( github.ref, 'refs/tags/v' )

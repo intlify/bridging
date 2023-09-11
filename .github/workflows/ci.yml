@@ -26,7 +26,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.9.3
+          version: 8.6.2
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -35,7 +35,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       - name: Lint codes
         run: pnpm lint
@@ -57,7 +57,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.9.3
+          version: 8.6.2
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -66,7 +66,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       - name: Run test
         run: ./scripts/e2e.sh
@@ -188,7 +188,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.9.3
+          version: 8.6.2
 
       - name: Setup node
         uses: actions/setup-node@v2
@@ -197,14 +197,14 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       - name: Release Edge version
         if: |
           github.event_name == 'push' &&
-          !contains(github.event.head_commit.message, '[skip-release]') &&
-          !contains(github.event.head_commit.message, 'chore') &&
-          !contains(github.event.head_commit.message, 'docs')
+          !startsWith(github.event.head_commit.message, '[skip-release]') &&
+          !startsWith(github.event.head_commit.message, 'chore') &&
+          !startsWith(github.event.head_commit.message, 'docs')
         run: ./scripts/release-edge.sh
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}

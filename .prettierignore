@@ -2,3 +2,4 @@ dist
 dist-ssr
 coverage
 tsconfig.json
+packages/**/lib/**/**.d.ts
