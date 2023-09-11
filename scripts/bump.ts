@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs'
-import { execSync } from 'child_process'
+import { promises as fs } from 'node:fs'
+import { execSync } from 'node:child_process'
 import { resolve } from 'pathe'
 import { createCommonJS } from 'mlly'
 import { globby } from 'globby'
@@ -49,6 +49,7 @@ type Package = ThenArg<ReturnType<typeof loadPackage>>
 
 async function loadWorkspaceData(path: string): Promise<string[]> {
   const workspacesYaml = await fs.readFile(path, 'utf-8')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data = (yaml.load(workspacesYaml) as any).packages
   return Array.isArray(data) ? (data as string[]) : []
 }
@@ -83,6 +84,7 @@ async function loadWorkspace(dir: string, workspaces: string[] = []) {
   const rename = (from: string, to: string) => {
     find(from).data.name = to
     for (const pkg of packages) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       pkg.updateDeps(dep => {
         return undefined
       })
