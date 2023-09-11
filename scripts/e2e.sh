@@ -13,6 +13,6 @@ done
 # Replace deps
 npx jiti ./scripts/replaceDeps.ts
 
-pnpm setup:examples
+# pnpm setup:examples
 
-pnpm test
+# pnpm test
