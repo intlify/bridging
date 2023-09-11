@@ -16,7 +16,8 @@ npx jiti ./scripts/replaceDeps.ts
 # show the diff of deps
 git diff
 
+# setup examples for e2e
 pnpm setup:examples
 
-# pnpm test
-pnpm test:i18n8
+# just do e2e!
+pnpm test
