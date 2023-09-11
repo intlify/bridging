@@ -93,7 +93,7 @@ jobs:
 
       - name: Install Playwright
         # does not need to explicitly set chromium after https://github.com/microsoft/playwright/issues/14862 is solved
-        run: pnpm install playwright chromium
+        run: pnpm install --workspace-root playwright chromium
 
       - name: Run test
         run: ./scripts/e2e.sh
