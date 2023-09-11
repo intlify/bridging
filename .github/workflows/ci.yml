@@ -101,7 +101,7 @@ jobs:
   npm:
     strategy:
       matrix:
-        node: [16.x, 18.x]
+        node: [18.x]
         os: [ubuntu-latest]
         vue: [2.6, 2.7, 3]
         bridge: [vue-i18n-bridge, vue-router-bridge]
@@ -130,7 +130,7 @@ jobs:
   yarn:
     strategy:
       matrix:
-        node: [16.x, 18.x]
+        node: [18.x]
         os: [ubuntu-latest]
         vue: [2.6, 2.7, 3]
         # yarn: [1.22.19, berry]
@@ -164,7 +164,7 @@ jobs:
   pnpm:
     strategy:
       matrix:
-        node: [16.x, 18.x]
+        node: [18.x]
         os: [ubuntu-latest]
         bridge: [vue-i18n-bridge, vue-router-bridge]
         vue: [2.6, 2.7, 3]

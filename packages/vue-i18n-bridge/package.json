@@ -6,8 +6,8 @@
     "postinstall": "node ./scripts/postinstall.js"
   },
   "peerDependencies": {
-    "vue-i18n": "^8.26.1 || ^9.2.0 || ^9.3.0",
-    "vue-i18n-bridge": "^9.2.0 || ^9.3.0",
+    "vue-i18n": "^8.26.1 || >=9.2.0",
+    "vue-i18n-bridge": ">=9.2.0",
     "@vue/composition-api": "^1.0.0-rc.1"
   },
   "peerDependenciesMeta": {
