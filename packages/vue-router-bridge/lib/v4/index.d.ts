@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { RouteLocationNormalizedLoaded, Router, RouteRecord, RouteMeta, NavigationGuard } from 'vue-router'
+import type { RouteLocationNormalizedLoaded, Router, RouteRecord, RouteMeta, NavigationGuard, RouteLocationRaw, LocationQuery, RouteParams } from 'vue-router'
 
 /**
  * shim vue-router@3 typings
@@ -14,22 +14,22 @@ declare interface VueRouter {
   beforeEach(guard: NavigationGuard): Function
   beforeResolve(guard: NavigationGuard): Function
   afterEach(hook: (to: Route, from: Route) => any): Function
-  push(location: RawLocation): Promise<Route>
-  push(location: RawLocation, onComplete?: Function, onAbort?: ErrorHandler): void
-  replace(location: RawLocation): Promise<Route>
-  replace(location: RawLocation, onComplete?: Function, onAbort?: ErrorHandler): void
+  push(location: RouteLocationRaw): Promise<Route>
+  push(location: RouteLocationRaw, onComplete?: Function, onAbort?: ErrorHandler): void
+  replace(location: RouteLocationRaw): Promise<Route>
+  replace(location: RouteLocationRaw, onComplete?: Function, onAbort?: ErrorHandler): void
   go(n: number): void
   back(): void
   forward(): void
-  match(raw: RawLocation, current?: Route, redirectedFrom?: Location): Route
-  getMatchedComponents(to?: RawLocation | Route): Component[]
+  match(raw: RouteLocationRaw, current?: Route, redirectedFrom?: Location): Route
+  getMatchedComponents(to?: RouteLocationRaw | Route): Component[]
   onReady(cb: Function, errorCb?: ErrorHandler): void
   onError(cb: ErrorHandler): void
   addRoutes(routes: RouteConfig[]): void
   AddRoute(parent: string, route: RouteConfig): void
   AddRoute(route: RouteConfig): void
   resolve(
-    to: RawLocation,
+    to: RouteLocationRaw,
     current?: Route,
     append?: boolean
   ): {
@@ -52,19 +52,19 @@ declare interface Location {
   append?: boolean
   replace?: boolean
 }
-declare type RawLocation = string | Location
+declare type RawLocation = RouteLocationRaw
 declare interface Route {
   path: string
   name?: string | null
   hash: string
-  query: Dictionary<string | (string | null)[]>
-  params: Dictionary<string>
+  query: LocationQuery
+  params: RouteParams
   fullPath: string
   matched: RouteRecord[]
   redirectedFrom?: string
   meta?: RouteMeta
 }
-declare type RedirectOption = RawLocation | ((to: Route) => RawLocation)
+declare type RedirectOption = RouteLocationRaw | ((to: Route) => RouteLocationRaw)
 declare interface PathToRegexpOptions {
   sensitive?: boolean
   strict?: boolean
@@ -117,7 +117,7 @@ declare interface RouteRecordPublic {
   name?: string
   redirect?: RedirectOption
   meta: any
-  beforeEnter?: (route: Route, redirect: (location: RawLocation) => void, next: () => void) => any
+  beforeEnter?: (route: Route, redirect: (location: RouteLocationRaw) => void, next: () => void) => any
   props:
     | boolean
     | Record<string, any>
@@ -161,6 +161,7 @@ export {
   isVueRouter4,
   RouterMode,
   RawLocation,
+  RouteLocationRaw,
   RedirectOption,
   RouteConfig,
   RouteRecordPublic,
