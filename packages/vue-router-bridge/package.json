@@ -1,6 +1,6 @@
 {
   "name": "@intlify/vue-router-bridge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue Router bridging for Vue 2 & Vue 3",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js"
