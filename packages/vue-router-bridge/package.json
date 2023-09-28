@@ -6,7 +6,7 @@
     "postinstall": "node ./scripts/postinstall.js"
   },
   "dependencies": {
-    "vue-demi": "^0.13.5"
+    "vue-demi": "^0.14.0"
   },
   "peerDependencies": {
     "vue-router": "^4.0.0-0 || ^3.0.0",
