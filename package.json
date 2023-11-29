@@ -30,7 +30,7 @@
     "pkg-types": "^1.0.2",
     "prettier": "^3.0.3",
     "rimraf": "^3.0.2",
-    "secretlint": "^7.0.7",
+    "secretlint": "^8.0.0",
     "typescript": "^5.2.2"
   },
   "engines": {
