@@ -10,7 +10,7 @@
     "url": "https://github.com/inlitify/bridging/issues"
   },
   "devDependencies": {
-    "@secretlint/secretlint-rule-preset-recommend": "^7.0.7",
+    "@secretlint/secretlint-rule-preset-recommend": "^8.0.0",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^20.6.0",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
