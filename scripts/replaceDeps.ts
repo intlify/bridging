@@ -32,13 +32,21 @@ async function main() {
     }
   }
   const examplesPath = resolve(__dirname, '../examples')
+  const projectPkgJson = await readPackageJSON(resolve(__dirname, 'package.json'))
   for (const ex of await fs.readdir(examplesPath)) {
     const examplePath = resolve(examplesPath, ex, 'package.json')
     const pkgJson = await readPackageJSON(examplePath)
     const pkg = PKG_MAP[ex]
     const tgzPath = TGZ_MAP.get(pkg)
-    if (tgzPath && pkgJson.dependencies) {
-      pkgJson.dependencies[`@intlify/${pkg}`] = `file:${tgzPath}`
+
+    if (pkgJson.dependencies) {
+      if (tgzPath) {
+        pkgJson.dependencies[`@intlify/${pkg}`] = `file:${tgzPath}`
+      }
+
+      if (projectPkgJson && projectPkgJson.devDependencies?.playwright) {
+        pkgJson.devDependencies['playwright'] = projectPkgJson.devDependencies.playwright
+      }
       await writePackageJSON(examplePath, pkgJson)
     }
   }
