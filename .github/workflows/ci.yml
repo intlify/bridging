@@ -1,5 +1,10 @@
 name: CI
 
+env:
+  CI: true
+  # install playwright binary manually (because pnpm only runs install script once)
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+
 on:
   push:
     branches:
@@ -10,12 +15,12 @@ on:
 
 jobs:
   lint:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [18.x]
-
-    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
 
     steps:
       - name: Checkout codes
@@ -29,24 +34,24 @@ jobs:
           version: 8.6.2
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile --ignore-scripts
+        run: pnpm install --no-frozen-lockfile
 
       - name: Lint codes
         run: pnpm lint
 
   e2e:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [18.x]
-
-    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
 
     steps:
       - name: Checkout codes
@@ -60,7 +65,7 @@ jobs:
           version: 8.6.2
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'pnpm'
@@ -107,6 +112,7 @@ jobs:
         bridge: [vue-i18n-bridge, vue-router-bridge]
         type: [commonjs, module]
       fail-fast: false
+    timeout-minutes: 10
 
     runs-on: ${{ matrix.os }}
 
@@ -117,7 +123,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -138,6 +144,7 @@ jobs:
         bridge: [vue-i18n-bridge, vue-router-bridge]
         type: [commonjs, module]
       fail-fast: false
+    timeout-minutes: 10
 
     runs-on: ${{ matrix.os }}
 
@@ -148,7 +155,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -170,6 +177,7 @@ jobs:
         vue: [2.6, 2.7, 3]
         type: [commonjs, module]
       fail-fast: false
+    timeout-minutes: 10
 
     runs-on: ${{ matrix.os }}
 
@@ -180,7 +188,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -218,7 +226,7 @@ jobs:
           version: 8.6.2
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'pnpm'
