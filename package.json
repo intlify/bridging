@@ -30,7 +30,7 @@
     "pkg-types": "^1.0.2",
     "playwright": "^1.40.1",
     "prettier": "^3.0.3",
-    "rimraf": "^3.0.2",
+    "rimraf": "^5.0.0",
     "secretlint": "^7.0.7",
     "typescript": "^5.2.2"
   },
