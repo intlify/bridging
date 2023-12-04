@@ -96,7 +96,7 @@ importers:
         specifier: ^1.0.0-rc.1
         version: 1.0.0-rc.1(vue@2.7.14)
       vue-demi:
-        specifier: ^0.14.0
+        specifier: '>=0.13.5 < 1.0.0'
         version: 0.14.6(@vue/composition-api@1.0.0-rc.1)(vue@2.7.14)
       vue-router:
         specifier: ^4.0.0-0 || ^3.0.0
