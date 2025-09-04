@@ -31,7 +31,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.6.2
+          version: 8.15.9
 
       - name: Setup node
         uses: actions/setup-node@v4
@@ -62,7 +62,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.6.2
+          version: 8.15.9
 
       - name: Setup node
         uses: actions/setup-node@v4
@@ -223,7 +223,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.6.2
+          version: 8.15.9
 
       - name: Setup node
         uses: actions/setup-node@v4
